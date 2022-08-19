@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-body text-center">
           <span class="titulo">Listado de Pacientes</span>
-          <button class="btn btn-success float-end">Nuevo</button>
+          <button class="btn btn-success float-end" routerLink="/crear-paciente">Nuevo</button>
           <table *ngIf="listPacientes; else nohay" class="table table-striped mt-3">
             <thead>
             <tr>
@@ -27,7 +27,10 @@
               <td>{{ paciente.mail }}</td>
               <td>{{ paciente.telefono }}</td>
               <td>{{ paciente.direccion }}</td>
-              <td><i class="fa-solid fa-trash text-primary"></i><i class="fa-solid fa-pen-to-square text-danger"></i></td>
+              <td>
+                <i [routerLink]="['/editar-paciente', paciente._id]"class="fa-solid fa-pen-to-square text-primary"></i>
+                <i (click)="eliminarPaciente(paciente._id)" class="fa-solid fa-trash text-danger "></i>
+                </td>
             </tr>
             </tbody>
           </table>
