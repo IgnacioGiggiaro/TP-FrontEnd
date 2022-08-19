@@ -8,25 +8,27 @@
           <table *ngIf="listPacientes; else nohay" class="table table-striped mt-3">
             <thead>
             <tr>
-              <th scope="col">#</th>
+
               <th scope="col">Dni</th>
               <th scope="col">Nombre</th>
               <th scope="col">Apellido</th>
               <th scope="col">Mail</th>
               <th scope="col">Telefono</th>
               <th scope="col">Direccion</th>
+              <th scope="col">Fecha de Nacimiento</th>
               <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let paciente of listPacientes">
-              <th scope="col" >{{co}}</th>
+
               <td>{{ paciente.dni }}</td>
               <td>{{ paciente.nombre }}</td>
               <td>{{ paciente.apellido }}</td>
               <td>{{ paciente.mail }}</td>
               <td>{{ paciente.telefono }}</td>
               <td>{{ paciente.direccion }}</td>
+              <td>{{ paciente.fecha_nac }}</td>
               <td>
                 <i [routerLink]="['/editar-paciente', paciente._id]"class="fa-solid fa-pen-to-square text-primary"></i>
                 <i (click)="eliminarPaciente(paciente._id)" class="fa-solid fa-trash text-danger "></i>

@@ -22,7 +22,6 @@ export class ListarPacientesComponent implements OnInit {
     this._pacienteService.getPacientes().subscribe(data=>{
       this.listPacientes = (data);
       console.log(this.listPacientes);
-
     }, error => {
       console.log(error);
     })
