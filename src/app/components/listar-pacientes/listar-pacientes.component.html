@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">Listado de Pacientes</span>
+          <button class="btn btn-success float-end">Nuevo</button>
+          <table *ngIf="listPacientes; else nohay" class="table table-striped mt-3">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Dni</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Mail</th>
+              <th scope="col">Telefono</th>
+              <th scope="col">Direccion</th>
+              <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let paciente of listPacientes">
+              <th scope="col" >{{co}}</th>
+              <td>{{ paciente.dni }}</td>
+              <td>{{ paciente.nombre }}</td>
+              <td>{{ paciente.apellido }}</td>
+              <td>{{ paciente.mail }}</td>
+              <td>{{ paciente.telefono }}</td>
+              <td>{{ paciente.direccion }}</td>
+              <td><i class="fa-solid fa-trash text-primary"></i><i class="fa-solid fa-pen-to-square text-danger"></i></td>
+            </tr>
+            </tbody>
+          </table>
+          <ng-template #nohay><h5>No hay pacientes</h5></ng-template>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
