@@ -1,12 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-  background: #2C3333; /*#085078;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2C3333, #395B64);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right,  #2C3333, #395B64); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  background: #94B49F; /*#085078;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #94B49F, #CEE5D0);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right,  #94B49F, #CEE5D0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   /*background: #2C3333;*/
 }
 
+.navbar {
+  background-color: #1B4D3E;
+
+}
+.navbar-brand{
+  font-family:"Baskerville Old Face";
+  max-height: 40px;
+  margin-top: -10px;
+
+}
+.logo{
+  color:white;
+}
 .titulo{
   font-size: 1.8rem;
 }

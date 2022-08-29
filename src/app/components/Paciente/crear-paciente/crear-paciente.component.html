@@ -4,6 +4,9 @@
       <div class="card">
         <div class="card-body text-center">
           <span class="titulo"> {{ titulo | uppercase }}</span>
+
+          <!--Modificar Paciente-->
+
           <form class="mt-3" *ngIf="this.id != null ; else nuevo" [formGroup]="pacienteForm"  (ngSubmit)="updatePaciente(this.id)" >
             <div class="mb-3">
               <input type="text" formControlName="dni" class="form-control form-control-lg"
@@ -66,6 +69,9 @@
               <button type="submit" [disabled]="pacienteForm.invalid" class="btn btn-success btn-lg float-end">ACEPTAR</button>
             </div>
           </form>
+
+          <!--Agregar paciente nuevo-->
+
           <ng-template #nuevo>
             <form class="mt-3" [formGroup]="pacienteForm"  (ngSubmit)="agregarPaciente()" >
             <div class="mb-3">

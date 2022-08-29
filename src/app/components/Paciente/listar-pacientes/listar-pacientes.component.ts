@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import {PacienteService} from "../../services/paciente.service";
-import {Paciente} from "../../models/paciente";
+import {PacienteService} from "../../../services/paciente.service";
+import {Paciente} from "../../../models/paciente";
 
 @Component({
   selector: 'app-listar-pacientes',
@@ -13,7 +13,6 @@ export class ListarPacientesComponent implements OnInit {
   constructor(private _pacienteService: PacienteService,
               private toastr: ToastrService) { }
 
-  co:number = 0;
   ngOnInit(): void {
     this.obtenerPacientes();
   }

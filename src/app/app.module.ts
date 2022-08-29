@@ -7,15 +7,17 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { CrearPacienteComponent } from './components/crear-paciente/crear-paciente.component';
-import { ListarPacientesComponent } from './components/listar-pacientes/listar-pacientes.component';
+import { CrearPacienteComponent } from './components/Paciente/crear-paciente/crear-paciente.component';
+import { ListarPacientesComponent } from './components/Paciente/listar-pacientes/listar-pacientes.component';
+import { MenuComponent } from './components/Index/menu/menu.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CrearPacienteComponent,
-    ListarPacientesComponent
+    ListarPacientesComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
