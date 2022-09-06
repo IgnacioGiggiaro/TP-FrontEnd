@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <div class="card">
+        <div class="card-body text-center table-responsive">
+          <span class="titulo">Listado de Pacientes</span>
+          <button class="btn btn-success float-end" routerLink="/create-practice">Nuevo</button>
+          <table *ngIf="listPractice; else nohay" class="table table-striped  mt-3">
+            <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let practice of listPractice">
+              <td>{{ practice.nombre }}</td>
+              <td>
+                <i [routerLink]="['/editar-practice', practice._id]"class="fa-solid fa-pen-to-square text-primary"></i>
+                <i (click)="eliminarPractice(practice._id)" class="fa-solid fa-trash text-danger "></i>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <ng-template #nohay><h5>No hay pacientes</h5></ng-template>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

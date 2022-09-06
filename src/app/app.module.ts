@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { CrearPacienteComponent } from './components/Paciente/crear-paciente/crear-paciente.component';
 import { ListarPacientesComponent } from './components/Paciente/listar-pacientes/listar-pacientes.component';
 import { MenuComponent } from './components/Index/menu/menu.component';
+import { CreatePracticeComponent } from './components/Practice/create-practice/create-practice.component';
+import { ListPracticeComponent } from './components/Practice/list-practice/list-practice.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { MenuComponent } from './components/Index/menu/menu.component';
     AppComponent,
     CrearPacienteComponent,
     ListarPacientesComponent,
-    MenuComponent
+    MenuComponent,
+    CreatePracticeComponent,
+    ListPracticeComponent
   ],
   imports: [
     BrowserModule,
