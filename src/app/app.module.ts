@@ -13,6 +13,9 @@ import { MenuComponent } from './components/Index/menu/menu.component';
 import { CreatePracticeComponent } from './components/Practice/create-practice/create-practice.component';
 import { ListPracticeComponent } from './components/Practice/list-practice/list-practice.component';
 
+import { CreateOSComponent } from './components/OS/create-os/create-os.component';
+import { ListOSComponent } from './components/OS/list-os/list-os.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { ListPracticeComponent } from './components/Practice/list-practice/list-
     ListarPacientesComponent,
     MenuComponent,
     CreatePracticeComponent,
-    ListPracticeComponent
+    ListPracticeComponent,
+    CreateOSComponent,
+    ListOSComponent
   ],
   imports: [
     BrowserModule,

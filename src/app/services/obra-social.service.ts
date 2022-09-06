@@ -1,0 +1,31 @@
+import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {ObraSocial} from "../models/obraSocial";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ObraSocialService {
+  url= 'http://localhost:3000/Practica/'
+  constructor(private http: HttpClient) {}
+
+  getOSs(): Observable<ObraSocial[]>{
+    return this.http.get<ObraSocial[]>(this.url);
+  }
+
+  deleteOS(_id: String): Observable<any>{
+    return this.http.delete(`${this.url}/${_id}`);
+  }
+
+  createOS(os: ObraSocial): Observable<any>{
+    return this.http.post(this.url, os);
+  }
+
+  updateOS(os: ObraSocial): Observable<any>{
+    return this.http.put(`${this.url}/${os._id}`, os)
+  }
+  getOS(_id: String): Observable<any>{
+    return this.http.get(`${this.url}/${_id}`)
+  }
+}
