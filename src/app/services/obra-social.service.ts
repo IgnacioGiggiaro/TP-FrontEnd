@@ -7,7 +7,7 @@ import {ObraSocial} from "../models/obraSocial";
   providedIn: 'root'
 })
 export class ObraSocialService {
-  url= 'http://localhost:3000/Practica/'
+  url= 'http://localhost:3000/ObraSocial/'
   constructor(private http: HttpClient) {}
 
   getOSs(): Observable<ObraSocial[]>{
@@ -22,10 +22,11 @@ export class ObraSocialService {
     return this.http.post(this.url, os);
   }
 
-  updateOS(os: ObraSocial): Observable<any>{
+  updateOS(_id: string, os: ObraSocial): Observable<any>{
     return this.http.put(`${this.url}/${os._id}`, os)
   }
   getOS(_id: String): Observable<any>{
     return this.http.get(`${this.url}/${_id}`)
   }
+
 }

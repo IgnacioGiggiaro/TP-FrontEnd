@@ -21,12 +21,12 @@ const routes: Routes = [
 
   //Practice Routes
   {path: 'create-practice', component:CreatePracticeComponent },
-  {path: 'editar-practice', component: CreatePracticeComponent},
+  {path: 'editar-practice/:id', component: CreatePracticeComponent},
   {path: 'list-practice', component:ListPracticeComponent},
 
   //OS Routes
   {path:'create-os', component:CreateOSComponent},
-  {path: 'edit-os', component:CreateOSComponent},
+  {path:'edit-os/:id', component:CreateOSComponent},
   {path:'list-os', component:ListOSComponent},
 
   //Default Route

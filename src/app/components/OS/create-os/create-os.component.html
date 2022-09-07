@@ -1,1 +1,50 @@
 <p>create-os works!</p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo"> {{ titulo | uppercase }}</span>
+
+          <!--Update OS-->
+
+          <form class="mt-3" *ngIf="this._id != null ; else nuevo" [formGroup]="OSForm"  (ngSubmit)="updateOS(this._id)" >
+            <div class="mb-3">
+              <input type="text" formControlName="nombre" class="form-control form-control-lg"
+                     placeholder="Nombre">
+              <div class="text-danger"
+                   *ngIf="OSForm.get('nombre')?.hasError('required') && OSForm.get('nombre')?.touched">
+                <span>El nombre <strong>es obligatorio</strong></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <button routerLink="/" class="btn btn-secondary btn-lg float-start">VOLVER</button>
+              <button type="submit" [disabled]="OSForm.invalid" class="btn btn-success btn-lg float-end">ACEPTAR</button>
+            </div>
+
+          </form>
+
+          <!--New OS-->
+
+          <ng-template #nuevo>
+            <form class="mt-3" [formGroup]="OSForm"  (ngSubmit)="createOS(OSForm.value)" >
+              <div class="mb-3">
+                <input type="text" formControlName="nombre" class="form-control form-control-lg"
+                       placeholder="Nombre">
+                <div class="text-danger"
+                     *ngIf="OSForm.get('nombre')?.hasError('required') && OSForm.get('nombre')?.touched">
+                  <span>El nombre <strong>es obligatorio</strong></span>
+                </div>
+              </div>
+              <div class="mb-3">
+                <button routerLink="/" class="btn btn-secondary btn-lg float-start">VOLVER</button>
+                <button type="submit" [disabled]="OSForm.invalid" class="btn btn-success btn-lg float-end">ACEPTAR</button>
+              </div>
+            </form>
+          </ng-template>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

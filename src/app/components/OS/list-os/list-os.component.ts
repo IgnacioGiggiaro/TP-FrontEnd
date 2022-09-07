@@ -19,6 +19,7 @@ export class ListOSComponent implements OnInit {
   getObrasSociales() {
     this.obraSocialService.getOSs().subscribe(
       data=>{
+        console.log(data);
         this.listOS= (data);
       }, error => {
         console.log(error)
@@ -26,7 +27,7 @@ export class ListOSComponent implements OnInit {
     )
   }
 
-  deleteObraSocial(_id: String){
+  deleteObraSocial(_id: any){
     this.obraSocialService.deleteOS(_id).subscribe(
       data=>{
         this.toastr.error('The OS has been successfully removed', 'OS deleted!' )
