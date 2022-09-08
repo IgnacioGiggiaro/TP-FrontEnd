@@ -22,8 +22,8 @@ export class ObraSocialService {
     return this.http.post(this.url, os);
   }
 
-  updateOS(_id: string, os: ObraSocial): Observable<any>{
-    return this.http.put(`${this.url}/${os._id}`, os)
+  updateOS(id: string, os: ObraSocial): Observable<any>{
+    return this.http.put(this.url + id, os)
   }
   getOS(_id: String): Observable<any>{
     return this.http.get(`${this.url}/${_id}`)

@@ -65,13 +65,13 @@ export class CreateOSComponent implements OnInit {
     }
   }
 
-  updateOS(_id: any) {
+  updateOS(id: any) {
     const os: ObraSocial = {
-      nombre: this.OSForm.value
+      nombre: this.OSForm.get('nombre')?.value,
     }
-    this._osService.updateOS(_id, os).subscribe( res=> {
+    this._osService.updateOS(id, os).subscribe( res=> {
       this.toastr.success('The OS was successfully updated', 'OS Updated!')
-      this.router.navigate(['/'])
+      this.router.navigate(['/list-os'])
     }, error => {
       console.log(error);
       this.OSForm.reset();
