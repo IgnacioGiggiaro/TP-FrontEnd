@@ -19,7 +19,7 @@
             <tr *ngFor="let os of listOS">
               <td>{{ os.nombre }}</td>
               <td>
-                <i [routerLink]="['/edit-os/:id', os._id]" class="fa-solid fa-pen-to-square text-primary"></i>
+                <i [routerLink]="['/edit-os', os._id]" class="fa-solid fa-pen-to-square text-primary"></i>
                 <i (click)="deleteObraSocial(os._id)" class="fa-solid fa-trash text-danger "></i>
               </td>
             </tr>
