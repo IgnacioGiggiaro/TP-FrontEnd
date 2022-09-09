@@ -17,7 +17,7 @@
               </div>
             </div>
             <div class="mb-3">
-              <button routerLink="/" class="btn btn-secondary btn-lg float-start">VOLVER</button>
+              <button [routerLink]="['/list-practice']" class="btn btn-secondary btn-lg float-start">VOLVER</button>
               <button type="submit" [disabled]="practiceForm.invalid" class="btn btn-success btn-lg float-end">ACEPTAR</button>
             </div>
 
@@ -36,7 +36,7 @@
                 </div>
               </div>
               <div class="mb-3">
-                <button routerLink="/" class="btn btn-secondary btn-lg float-start">VOLVER</button>
+                <button [routerLink]="['/list-practice']" class="btn btn-secondary btn-lg float-start">VOLVER</button>
                 <button type="submit" [disabled]="practiceForm.invalid" class="btn btn-success btn-lg float-end">ACEPTAR</button>
               </div>
             </form>
