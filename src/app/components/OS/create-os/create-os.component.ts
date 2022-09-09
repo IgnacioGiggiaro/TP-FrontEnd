@@ -44,7 +44,8 @@ export class CreateOSComponent implements OnInit {
     this._osService.createOS(os).subscribe(
       res => {
         console.log(res);
-  this.toastr.success('The OS has been successfully created!', 'OS added!')
+    this.toastr.success('The OS has been successfully created!', 'OS added!')
+        this.router.navigate(['/list-os'])
     }, error => {
         console.log(error);
         this.OSForm.reset();
