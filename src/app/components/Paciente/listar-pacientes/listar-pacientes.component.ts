@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import * as moment from 'moment';
 import {PacienteService} from "../../../services/paciente.service";
 import {Paciente} from "../../../models/paciente";
 
@@ -32,5 +33,10 @@ export class ListarPacientesComponent implements OnInit {
     }, error => {
       console.log(error);
     })
+  }
+
+  formatDate(fecha: Date){
+    return moment(fecha).utcOffset('0300').format('DD-MM-YYYY')
+
   }
 }

@@ -9,6 +9,8 @@ import {ListPracticeComponent} from "./components/Practice/list-practice/list-pr
 import {CreateOSComponent} from "./components/OS/create-os/create-os.component";
 
 import {ListOSComponent} from "./components/OS/list-os/list-os.component";
+import {ListProfessionalComponent} from "./components/Professional/list-professional/list-professional.component";
+import {CreateProfessionalComponent} from "./components/Professional/create-professional/create-professional.component";
 
 const routes: Routes = [
   //Menu Route
@@ -28,6 +30,11 @@ const routes: Routes = [
   {path:'create-os', component:CreateOSComponent},
   {path:'edit-os/:id', component:CreateOSComponent},
   {path:'list-os', component:ListOSComponent},
+
+  //OS Routes
+  {path:'create-professional', component:CreateProfessionalComponent},
+  {path:'edit-professional/:id', component:CreateProfessionalComponent},
+  {path:'list-professional', component:ListProfessionalComponent},
 
   //Default Route
   {path:'**', redirectTo: '', pathMatch:'full'}];

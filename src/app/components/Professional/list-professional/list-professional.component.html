@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <div class="card">
+        <div class="card-body text-center table-responsive">
+          <span class="titulo">Listado de Pacientes</span>
+          <button class="btn btn-success float-end" routerLink="/crear-paciente">Nuevo</button>
+          <table *ngIf="listProfessional; else nohay" class="table table-striped  mt-3">
+            <thead>
+            <tr>
+
+              <th scope="col">Dni</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Mail</th>
+              <th scope="col">Telefono</th>
+              <th scope="col">Direccion</th>
+              <th scope="col">Fecha de Nacimiento</th>
+              <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let professional of listProfessional">
+
+              <td>{{ professional.dni }}</td>
+              <td>{{ professional.nombre }}</td>
+              <td>{{ professional.apellido }}</td>
+              <td>{{ professional.mail }}</td>
+              <td>{{ professional.telefono }}</td>
+              <td>{{ professional.direccion }}</td>
+              <td>{{ professional.fecha_nac }}</td>
+              <td>
+                <i [routerLink]="['/editar-paciente', professional._id]"class="fa-solid fa-pen-to-square text-primary"></i>
+                <i (click)="deleteProfessional(professional._id)" class="fa-solid fa-trash text-danger "></i>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <ng-template #nohay><h5>No hay pacientes</h5></ng-template>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-export class Paciente {
+export class Professional {
   _id?:number;
   dni:string;
   nombre: string;
@@ -8,6 +8,7 @@ export class Paciente {
   direccion: string;
   fecha_nac: Date;
 
+
   constructor(dni:string,nombre: string, apellido: string, telefono: string, mail:string, direccion:string, fecha_nac:Date) {
     this.dni=dni;
     this.nombre=nombre;
@@ -15,7 +16,8 @@ export class Paciente {
     this.telefono=telefono;
     this.mail=mail;
     this.direccion=direccion;
-    this.fecha_nac=fecha_nac
+    this.fecha_nac=fecha_nac;
+
 
   }
 }

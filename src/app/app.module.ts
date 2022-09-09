@@ -15,6 +15,8 @@ import { ListPracticeComponent } from './components/Practice/list-practice/list-
 
 import { CreateOSComponent } from './components/OS/create-os/create-os.component';
 import { ListOSComponent } from './components/OS/list-os/list-os.component';
+import {CreateProfessionalComponent} from "./components/Professional/create-professional/create-professional.component";
+import {ListProfessionalComponent} from "./components/Professional/list-professional/list-professional.component";
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { ListOSComponent } from './components/OS/list-os/list-os.component';
     CreatePracticeComponent,
     ListPracticeComponent,
     CreateOSComponent,
-    ListOSComponent
+    ListOSComponent,
+    CreateProfessionalComponent,
+    ListProfessionalComponent
   ],
   imports: [
     BrowserModule,
