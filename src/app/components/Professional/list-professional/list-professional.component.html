@@ -3,7 +3,7 @@
     <div class="col-lg-10 offset-lg-1">
       <div class="card">
         <div class="card-body text-center table-responsive">
-          <span class="titulo">Listado de Pacientes</span>
+          <span class="titulo">Listado de Profesionales</span>
           <button class="btn btn-success float-end" routerLink="/create-professional">Nuevo</button>
           <table *ngIf="listProfessional; else nohay" class="table table-striped  mt-3">
             <thead>
@@ -30,15 +30,29 @@
               <td>{{ professional.direccion }}</td>
               <td>{{ professional.fecha_nac }}</td>
               <td>
-                <i [routerLink]="['/editar-paciente', professional._id]"class="fa-solid fa-pen-to-square text-primary"></i>
+                <i [routerLink]="['/editar-pro', professional._id]"class="fa-solid fa-pen-to-square text-primary"></i>
                 <i (click)="deleteProfessional(professional._id)" class="fa-solid fa-trash text-danger "></i>
               </td>
             </tr>
             </tbody>
           </table>
-          <ng-template #nohay><h5>No hay pacientes</h5></ng-template>
-
-
+          <ng-template #nohay><h5>No hay profesionales</h5></ng-template>
+        </div>
+      </div>
+      <div class="container">
+        <div class="card mb-3" *ngFor="let prof of listProfessional">
+          <div class="row g-0">
+            <div class="col-md-3">
+              <img src="../../../../assets/muser-dr-512.png" class="img-fluid rounded-start mt-auto" style="max-width: 210px;" alt="...">
+            </div>
+            <div class="col-md-9">
+              <div class="card-body">
+                <h5 class="card-title">{{prof.nombre}} {{prof.apellido}}</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <a href="" class="btn btn-info btn-lg float-end">Mas info</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

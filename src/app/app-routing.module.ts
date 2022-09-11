@@ -31,7 +31,7 @@ const routes: Routes = [
   {path:'edit-os/:id', component:CreateOSComponent},
   {path:'list-os', component:ListOSComponent},
 
-  //OS Routes
+  //Prof Routes
   {path:'create-professional', component:CreateProfessionalComponent},
   {path:'edit-professional/:id', component:CreateProfessionalComponent},
   {path:'list-professional', component:ListProfessionalComponent},
