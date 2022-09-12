@@ -1,15 +1,38 @@
-import { Component, OnInit } from '@angular/core';
 
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements AfterViewInit {
 
-  constructor() { }
+  @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
+  map: google.maps.Map;
+  lat = -32.95461;
+  lng = -60.64382;
 
-  ngOnInit(): void {
+  coordinates = new google.maps.LatLng(this.lat, this.lng);
+
+  mapOptions: google.maps.MapOptions = {
+    center: this.coordinates,
+    zoom: 12
+  };
+
+
+
+
+  ngAfterViewInit() {
+    this.mapInitializer();
   }
+  marker = new google.maps.Marker({
+    position: this.coordinates,
 
+  });
+
+  mapInitializer() {
+    this.map = new google.maps.Map(this.gmap.nativeElement,
+      this.mapOptions);
+    this.marker.setMap(this.map);
+  }
 }
