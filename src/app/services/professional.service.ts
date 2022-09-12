@@ -26,7 +26,7 @@ export class ProfessionalService {
     return this.http.put(this.url + id, professional);
   }
 
-  getProfessional(id: string): Observable<any> {
-    return this.http.get(this.url + id);
+  getProfessional(id: string): Observable<Professional> {
+    return this.http.get<Professional>(this.url + id);
   }
 }

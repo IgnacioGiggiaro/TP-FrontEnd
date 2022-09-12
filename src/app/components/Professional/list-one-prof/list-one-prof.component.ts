@@ -4,43 +4,42 @@ import {Professional} from "../../../models/professional";
 import {ProfessionalService} from "../../../services/professional.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import * as moment from "moment";
 @Component({
   selector: 'app-list-one-prof',
   templateUrl: './list-one-prof.component.html',
   styleUrls: ['./list-one-prof.component.css']
 })
 export class ListOneProfComponent implements OnInit {
-
-  profForm: FormGroup;
+  professional!: Professional;
   id: string | null;
-  constructor(private fb: FormBuilder,
-              private router: Router,
+  constructor(
+
               private toastr: ToastrService,
               private _profService: ProfessionalService,
               private aRouter: ActivatedRoute) {
-    this.profForm = this.fb.group({
 
-      nombre: ['', Validators.required],
-
-    })
     this.id = this.aRouter.snapshot.paramMap.get('id');}
 
-  ngOnInit(): void { this.getProfessionalByID(this.id)
+  ngOnInit(): void { this.getProfessionalByID(this.id);
   }
 
   getProfessionalByID(_id: any) {
     if (_id !== null) {
       this._profService.getProfessional(_id).subscribe(
         res => {
-          console.log(res)
-          this.profForm.setValue({
-            nombre: res.nombre+res.apellido
-          })
+          this.professional=(res);
+          console.log(this.professional);
         }, error => {
           console.log(error)
         }
       )
     }
+  }
+
+  formatDate(fecha: Date){
+    return moment(fecha).utcOffset('0300').format('DD-MM-YYYY')
+
   }
 
 

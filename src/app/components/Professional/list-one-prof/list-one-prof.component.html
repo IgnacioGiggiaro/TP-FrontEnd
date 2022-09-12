@@ -1,33 +1,48 @@
 <div class="container mt-5">
   <div class="row">
+    <div class="col-lg-11 offset-lg-1">
+      <div class="card mb-3" style="max-width: 1080px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="https://blog.hubspot.com/hubfs/characteristics-of-professional-salespeople.jpg" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{this.professional.apellido}}, {{this.professional.nombre}}</h5>
+              <p class="card-text">{{this.professional.direccion}}</p>
+              <p class="card-text">{{this.professional.mail}}</p>
+              <p class="card-text"><small class="text-muted">{{formatDate(this.professional.fecha_nac)}}</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="container mt-5" >
+  <div class="row">
     <div class="col-lg-10 offset-lg-1">
       <div class="card">
         <div class="card-body text-center table-responsive">
           <table class="table table-striped  mt-3">
-            <form class="container" [formGroup]="profForm" >
               <div class="card mb-3" >
                 <div class="row g-0">
 
                   <div class="col-md-9">
                     <div class="card-body">
 
-                      <input type="text" formControlName="nombre" class="form-control form-control-lg"
-                             placeholder="Nombre">
-                      <h5 class="card-title"></h5>
+                      <h5 class="card-title">{{this.professional.apellido}},{{this.professional.apellido}}</h5>
                       <a  class="btn btn-info btn-lg float-end">Sacar turno</a>
                     </div>
                   </div>
                 </div>
               </div>
-            </form>
           </table>
         </div>
       </div>
-
-      <!--there are no professional-->
-      <ng-template #nohay>
-        <h5>It seems that there aren't any professionals!</h5>
-      </ng-template>
     </div>
   </div>
 </div>
+-->
