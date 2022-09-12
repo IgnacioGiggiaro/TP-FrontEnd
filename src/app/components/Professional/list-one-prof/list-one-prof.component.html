@@ -1,0 +1,33 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <div class="card">
+        <div class="card-body text-center table-responsive">
+          <table class="table table-striped  mt-3">
+            <div class="container">
+              <div class="card mb-3" >
+                <div class="row g-0">
+                  <div class="col-md-3">
+                    <img src="../../../../assets/muser-dr-512.png" class="img-fluid rounded-start mt-auto" style="max-width: 210px;" alt="...">
+                  </div>
+                  <div class="col-md-9">
+                    <div class="card-body">
+                      <h5 class="card-title">{{_prof.nombre}} {{_prof.apellido}}</h5>
+                      <p class="card-text">Mat. {{_prof.matricula}}</p>
+                      <a  class="btn btn-info btn-lg float-end">Sacar turno</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </table>
+        </div>
+      </div>
+
+      <!--there are no professional-->
+      <ng-template #nohay>
+        <h5>It seems that there aren't any professionals!</h5>
+      </ng-template>
+    </div>
+  </div>
+</div>

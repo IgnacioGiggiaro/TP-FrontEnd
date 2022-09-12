@@ -20,15 +20,16 @@ export class CreateProfessionalComponent implements OnInit {
               private _professionalService: ProfessionalService,
               private aRouter: ActivatedRoute) {
     this.professionalForm = this.fb.group({
-      dni: ['', Validators.required],
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
-      telefono: ['', Validators.required],
-      mail: ['', Validators.required],
-      direccion: ['', Validators.required],
-      fecha_nac: ['', Validators.required],
-
-    })
+        dni: ['', Validators.required],
+        nombre: ['', Validators.required],
+        apellido: ['', Validators.required],
+        telefono: ['', Validators.required],
+        mail: ['', Validators.required],
+        direccion: ['', Validators.required],
+        fecha_nac: ['', Validators.required],
+        matricula: ['', Validators.required],
+      }
+    )
     this.id = this.aRouter.snapshot.paramMap.get('id');}
 
   ngOnInit(): void {this.esEditar();
@@ -46,6 +47,7 @@ export class CreateProfessionalComponent implements OnInit {
       mail: this.professionalForm.get('mail')?.value,
       direccion: this.professionalForm.get('direccion')?.value,
       fecha_nac: this.professionalForm.get('fecha_nac')?.value,
+      matricula: this.professionalForm.get('matricula')?.value,
     }
     console.log(PROFESSIONAL);
     this._professionalService.createProfessional(PROFESSIONAL).subscribe(data=> {
@@ -66,6 +68,7 @@ export class CreateProfessionalComponent implements OnInit {
       mail: this.professionalForm.get('mail')?.value,
       direccion: this.professionalForm.get('direccion')?.value,
       fecha_nac: this.professionalForm.get('fecha_nac')?.value,
+      matricula: this.professionalForm.get('matricula')?.value
     }
     console.log(PROFESSIONAL);
     this._professionalService.updateProfessional(id, PROFESSIONAL).subscribe( data=> {
@@ -89,6 +92,7 @@ export class CreateProfessionalComponent implements OnInit {
           mail: data.mail,
           direccion: data.direccion,
           fecha_nac: data.fecha_nac,
+          matricula: data.matricula,
         })
       })
     }

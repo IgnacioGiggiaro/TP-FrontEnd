@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import {PacienteService} from "../../../services/paciente.service";
-import {Paciente} from "../../../models/paciente";
 import {Professional} from "../../../models/professional";
 import {ProfessionalService} from "../../../services/professional.service";
+import {ActivatedRoute, Router} from "@angular/router";
 @Component({
   selector: 'app-list-professional',
   templateUrl: './list-professional.component.html',
@@ -12,7 +11,9 @@ import {ProfessionalService} from "../../../services/professional.service";
 export class ListProfessionalComponent implements OnInit {
   listProfessional: Professional[] = [];
   constructor(private _professionalService: ProfessionalService,
-              private toastr: ToastrService) {}
+              private toastr: ToastrService,
+              private router: Router) {
+  }
 
   ngOnInit(): void {this.getProfessional();
   }

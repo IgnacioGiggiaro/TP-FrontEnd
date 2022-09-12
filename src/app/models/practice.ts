@@ -1,5 +1,5 @@
 export class Practice {
-  _id?:number;
+  _id?:string;
   nombre: string;
 
 

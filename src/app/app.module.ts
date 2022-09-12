@@ -17,6 +17,7 @@ import { CreateOSComponent } from './components/OS/create-os/create-os.component
 import { ListOSComponent } from './components/OS/list-os/list-os.component';
 import {CreateProfessionalComponent} from "./components/Professional/create-professional/create-professional.component";
 import {ListProfessionalComponent} from "./components/Professional/list-professional/list-professional.component";
+import { ListOneProfComponent } from './components/Professional/list-one-prof/list-one-prof.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {ListProfessionalComponent} from "./components/Professional/list-professi
     CreateOSComponent,
     ListOSComponent,
     CreateProfessionalComponent,
-    ListProfessionalComponent
+    ListProfessionalComponent,
+    ListOneProfComponent
   ],
   imports: [
     BrowserModule,
