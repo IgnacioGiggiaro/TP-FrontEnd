@@ -31,6 +31,6 @@ export class ProfessionalService {
     return this.http.get<Professional>(this.url + id);
   }
   retrieveProfessional(id:string, fecha:any): Observable<any>{
-    return this.http.get(this.url+ id + '/r/', fecha)
+    return this.http.get(this.url+ id + '/' +fecha)
   }
 }
