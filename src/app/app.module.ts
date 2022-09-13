@@ -18,6 +18,7 @@ import { ListOSComponent } from './components/OS/list-os/list-os.component';
 import {CreateProfessionalComponent} from "./components/Professional/create-professional/create-professional.component";
 import {ListProfessionalComponent} from "./components/Professional/list-professional/list-professional.component";
 import { ListOneProfComponent } from './components/Professional/list-one-prof/list-one-prof.component';
+import { CreateTurnoComponent } from './components/Turno/create-turno/create-turno.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ListOneProfComponent } from './components/Professional/list-one-prof/li
     ListOSComponent,
     CreateProfessionalComponent,
     ListProfessionalComponent,
-    ListOneProfComponent
+    ListOneProfComponent,
+    CreateTurnoComponent
   ],
   imports: [
     BrowserModule,

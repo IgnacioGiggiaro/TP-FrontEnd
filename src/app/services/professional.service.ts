@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Professional} from "../models/professional";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -28,5 +29,8 @@ export class ProfessionalService {
 
   getProfessional(id: string): Observable<Professional> {
     return this.http.get<Professional>(this.url + id);
+  }
+  retrieveProfessional(id:string, fecha:any): Observable<any>{
+    return this.http.get(this.url+ id + '/r/', fecha)
   }
 }
