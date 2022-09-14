@@ -7,6 +7,7 @@ body{
 
   /*background: #2C3333;*/
 }
+@import "~mdb-angular-ui-kit/assets/scss/mdb.scss";
 
 .navbar {
   background-color: #1B4D3E;
