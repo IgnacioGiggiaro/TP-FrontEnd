@@ -58,7 +58,7 @@ export class CreateTurnoComponent implements OnInit {
 
   createTurno(t: number) {
     console.log(t);
-    const fecha =(this.fechaForm.get('fecha')?.value)+'T03:00:00.000Z';
+    const fecha =this.formatDate(this.fechaForm.get('fecha')?.value);
     if (this.id!=null) {
       const turno: Turno = {
         dia: fecha,
