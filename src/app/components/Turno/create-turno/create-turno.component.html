@@ -1,7 +1,32 @@
 <form class="mt-3" [formGroup]="fechaForm"  (ngSubmit)="getTurnosPosibles()" >
   <div class="mb-3">
-    <input type="text" formControlName="fecha" class="form-control" placeholder="Fecha"/>
-    <button type="submit" [disabled]="fechaForm.invalid" class="btn btn-info btn-lg float-end" > Buscar Turno</button>
+    <input type="date" formControlName="fecha" class="form-control" placeholder="Fecha"/>
+    <button type="submit" (click)="co=1" [disabled]="fechaForm.invalid" class="btn btn-info btn-lg float-end" > Buscar Turno</button>
+      <div *ngIf="co==1">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body text-center table-responsive">
+              <table class="table">
+              <thead>
+              <tr>
+                <th scope="col">Horarios Disponibles</th>
+                <th scope="col"></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let t of turnos">
+                <td>{{ t }}</td>
+                <td>
+                  <button type="submit" (click)="createTurno(t)" class="btn btn-info">Seleccionar</button>
+                </td>
+              </tr>
+              </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
   </div>
 </form>
 
