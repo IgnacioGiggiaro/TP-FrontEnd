@@ -5,6 +5,7 @@ import {ProfessionalService} from "../../../services/professional.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import * as moment from "moment";
+import {formatDate} from "@angular/common";
 @Component({
   selector: 'app-list-one-prof',
   templateUrl: './list-one-prof.component.html',
@@ -38,11 +39,14 @@ export class ListOneProfComponent implements OnInit {
   }
 
   formatDate(fecha: Date){
-    return moment(fecha).utcOffset('0300').format('DD-MM-YYYY')
+    return moment(fecha).utcOffset('0300').format('YYYY')
 
   }
+  edad(fecha: Date){
+    let d=  new Date()
 
-
+    return d.getFullYear()-parseInt(this.formatDate(fecha))
+  }
 }
 
 

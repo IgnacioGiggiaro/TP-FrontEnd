@@ -16,8 +16,10 @@
                     <div class="card-body">
                       <h5 class="card-title">{{prof.nombre}} {{prof.apellido}}</h5>
                       <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <a [routerLink]="['/list-one-prof', prof._id]"  class="btn btn-info btn-lg float-end">Mas info</a>
                       <a [routerLink]="['/create-turno', prof._id]" class="btn btn-info btn-lg float-end">Sacar turno</a>
+                      <br>
+                      <br>
+                      <a [routerLink]="['/list-one-prof', prof._id]"  class="btn btn-info btn-lg float-end">Mas info</a>
                     </div>
                   </div>
                 </div>
