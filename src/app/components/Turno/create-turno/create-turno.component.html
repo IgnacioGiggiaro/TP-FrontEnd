@@ -20,7 +20,7 @@
               </select>
             </div>
             <div class="col-2">
-              <select  class="selectpicker" (change)="updatePrac({e : $event})">
+              <select  class="selectpicker" (change)="updatePac({e : $event})">
                 <option></option>
                 <option  *ngFor="let pac of listPaciente" data-subtext="Rep California" [value]="pac._id" >{{pac.nombre}},{{pac.apellido}}</option>
               </select>
@@ -43,7 +43,7 @@
                     </thead>
                     <tbody>
                     <tr *ngFor="let t of turnos">
-                      <td><button type="submit" (click)="createTurno(t)" class="btn btn-info">{{ decimalAHora(t) }}</button></td>
+                      <td><button (click)="createTurno(t)" class="btn btn-info">{{ decimalAHora(t) }}</button></td>
                     </tr>
                     </tbody>
                   </table>

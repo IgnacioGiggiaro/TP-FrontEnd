@@ -38,7 +38,7 @@ export class CreatePracticeComponent implements OnInit {
     console.log(PRACTICE);
     this._practiceService.createPractice(PRACTICE).subscribe(data => {
       this.toastr.success('La practica fue registrada con exito!', 'Practica Registrado!');
-      this.router.navigate(['/']);
+      this.router.navigate(['/list-practice']);
     }, error => {
       console.log(error);
       this.practiceForm.reset();
@@ -57,7 +57,7 @@ export class CreatePracticeComponent implements OnInit {
     console.log(PRACTICE);
     this._practiceService.updatePractice(id,PRACTICE).subscribe(data => {
       this.toastr.success('La práctica fue actualizada con exito!', 'Practica Registrada!');
-      this.router.navigate(['/']);
+      this.router.navigate(['/list-practice']);
     }, error => {
       console.log(error);
       this.practiceForm.reset();

@@ -48,7 +48,7 @@ export class CrearPacienteComponent implements OnInit {
     console.log(PACIENTE);
     this._pacienteService.guardarPaciente(PACIENTE).subscribe(data => {
       this.toastr.success('El paciente fue registrado con exito!', 'Paciente Registrado!');
-      this.router.navigate(['/']);
+      this.router.navigate(['/list-paciente']);
     }, error => {
       console.log(error);
       this.pacienteForm.reset();
@@ -71,7 +71,7 @@ export class CrearPacienteComponent implements OnInit {
     console.log(PACIENTE);
     this._pacienteService.updatePaciente(id,PACIENTE).subscribe(data => {
       this.toastr.success('El paciente fue actualizado con exito!', 'Paciente Registrado!');
-      this.router.navigate(['/']);
+      this.router.navigate(['/list-paciente']);
     }, error => {
       console.log(error);
       this.pacienteForm.reset();
