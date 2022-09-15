@@ -6,10 +6,13 @@ import {ObraSocial} from "../../../models/obraSocial";
 import {ObraSocialService} from "../../../services/obra-social.service";
 import {Practice} from "../../../models/practice";
 import {PracticeService} from "../../../services/practice.service";
+import {Paciente} from "../../../models/paciente";
+import {PacienteService} from "../../../services/paciente.service";
 import {ActivatedRoute} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import * as moment from "moment";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+
 
 @Component({
   selector: 'app-create-turno',
@@ -20,12 +23,14 @@ export class CreateTurnoComponent implements OnInit {
   turnos: number[]=[];
   listOs: ObraSocial[]=[];
   listPrac:Practice[]=[];
+  listPaciente: Paciente[]=[];
 
   fechaForm: FormGroup;
   id:string|null;
   co!: number;
   osid!:string;
   pid!:string;
+  pacId!:string;
   constructor(
     private fb:FormBuilder,
     private _profService: ProfessionalService,
@@ -33,7 +38,8 @@ export class CreateTurnoComponent implements OnInit {
     private aRouter: ActivatedRoute,
     private _turnoService : TurnoService,
     private _osService: ObraSocialService,
-    private toastr: ToastrService) {
+    private toastr: ToastrService,
+    private _pacienteService:PacienteService) {
     this.fechaForm=this.fb.group({
       fecha:['',Validators.required],
     })
@@ -41,7 +47,8 @@ export class CreateTurnoComponent implements OnInit {
   }
 
   ngOnInit(): void {this.getObraSociales();
-    this.getPractica()
+    this.getPractica();
+    this.getPaciente();
   }
 
 
@@ -78,7 +85,7 @@ export class CreateTurnoComponent implements OnInit {
         hsDesde: t,
         professional: this.id,
         obraSocial :this.osid,
-        paciente: "631a2c69ba6f2ce711d99ee5",
+        paciente: this.pacId,
         practica: this.pid
       }
       console.log(turno);
@@ -120,6 +127,14 @@ export class CreateTurnoComponent implements OnInit {
       console.log(error);
     })
   }
+  getPaciente(){
+    this._pacienteService.getPacientes().subscribe(data=>{
+      this.listPaciente=(data);
+      console.log(this.listPaciente);
+    }, error=>{
+      console.log(error)
+    })
+  }
   update({e}: { e: any }){
     this.osid = e.target.value;
     console.log(this.osid)
@@ -128,7 +143,10 @@ export class CreateTurnoComponent implements OnInit {
     this.pid = e.target.value;
     console.log(this.pid)
   }
-
+  updatePac({e}: { e: any }){
+    this.pacId = e.target.value;
+    console.log(this.pacId)
+  }
 }
 
 
