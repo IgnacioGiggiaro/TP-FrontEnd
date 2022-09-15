@@ -20,6 +20,7 @@
     "@angular/router": "^14.1.0",
     "@types/googlemaps": "^3.43.3",
     "bootstrap": "^5.2.1",
+    "bootstrap-select": "^1.13.18",
     "bootswatch": "^5.2.0",
     "mdb-angular-ui-kit": "^2.3.0",
     "moment": "^2.29.4",

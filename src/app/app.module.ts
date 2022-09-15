@@ -17,6 +17,9 @@ import { CreateOSComponent } from './components/OS/create-os/create-os.component
 import { ListOSComponent } from './components/OS/list-os/list-os.component';
 import {CreateProfessionalComponent} from "./components/Professional/create-professional/create-professional.component";
 import {ListProfessionalComponent} from "./components/Professional/list-professional/list-professional.component";
+import { ListOneProfComponent } from './components/Professional/list-one-prof/list-one-prof.component';
+import { CreateTurnoComponent } from './components/Turno/create-turno/create-turno.component';
+
 import {MdbCarouselModule} from "mdb-angular-ui-kit/carousel";
 
 @NgModule({
@@ -30,7 +33,9 @@ import {MdbCarouselModule} from "mdb-angular-ui-kit/carousel";
     CreateOSComponent,
     ListOSComponent,
     CreateProfessionalComponent,
-    ListProfessionalComponent
+    ListProfessionalComponent,
+    ListOneProfComponent,
+    CreateTurnoComponent
   ],
   imports: [
     MdbCarouselModule,

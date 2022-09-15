@@ -1,0 +1,55 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-11 offset-lg-1">
+      <div class="card mb-3" style="max-width: 1080px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="../../../../assets/muser-dr-512.png" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h1 class="card-title">{{this.professional.apellido}}, {{this.professional.nombre}}</h1>
+
+              <h5><strong>Email</strong></h5>
+              <p class="card-text">{{this.professional.mail}}</p>
+              <h5><strong>Teléfono</strong></h5>
+              <p class="card-text">{{this.professional.telefono}}</p>
+              <h5><strong>Edad</strong></h5>
+              <p class="card-text">{{edad(this.professional.fecha_nac)}}</p>
+              <h5><strong>Dirección</strong></h5>
+              <p class="card-text">{{this.professional.telefono}}</p>
+              <a [routerLink]="['/create-turno', this.professional._id]" class="btn btn-info btn-lg float-end mb-3">Sacar turno</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="container mt-5" >
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <div class="card">
+        <div class="card-body text-center table-responsive">
+          <table class="table table-striped  mt-3">
+              <div class="card mb-3" >
+                <div class="row g-0">
+
+                  <div class="col-md-9">
+                    <div class="card-body">
+
+                      <h5 class="card-title">{{this.professional.apellido}},{{this.professional.apellido}}</h5>
+                      <a  class="btn btn-info btn-lg float-end">Sacar turno</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->
