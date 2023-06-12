@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Turno} from '../models/turno';
+import {environment} from "../../environments/environment";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class TurnoService {
-  url= 'http://localhost:3000/Turno/'
+  url= environment.route + 'Turno/'
   constructor(private http: HttpClient) { }
   getTurnos(): Observable<Turno[]>{
     return this.http.get<Turno[]>(this.url);

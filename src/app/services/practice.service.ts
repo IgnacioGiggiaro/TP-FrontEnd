@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Practice} from "../models/practice";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PracticeService {
 
-  url = 'http://localhost:3000/Practica/'
+  url = environment.route + 'Practica/'
 
   constructor(private http: HttpClient) { }
 

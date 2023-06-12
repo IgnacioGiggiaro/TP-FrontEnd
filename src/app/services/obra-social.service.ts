@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ObraSocial} from "../models/obraSocial";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ObraSocialService {
-  url= 'http://localhost:3000/ObraSocial/'
+  url= environment.route + 'ObraSocial/'
+  //La parte del localhost debería estar en un .env
   constructor(private http: HttpClient) {}
 
   getOSs(): Observable<ObraSocial[]>{

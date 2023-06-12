@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Professional} from "../models/professional";
+import {environment} from "../../environments/environment";
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import {Professional} from "../models/professional";
 })
 export class ProfessionalService {
 
-  url = 'http://localhost:3000/Professional/'
+  url = environment.route + 'Professional/'
 
   constructor(private http: HttpClient) { }
 
