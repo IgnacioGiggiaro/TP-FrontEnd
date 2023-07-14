@@ -21,6 +21,7 @@ import { ListOneProfComponent } from './components/Professional/list-one-prof/li
 import { CreateTurnoComponent } from './components/Turno/create-turno/create-turno.component';
 
 import {MdbCarouselModule} from "mdb-angular-ui-kit/carousel";
+import { CarouselComponent } from './components/Index/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {MdbCarouselModule} from "mdb-angular-ui-kit/carousel";
     CreateProfessionalComponent,
     ListProfessionalComponent,
     ListOneProfComponent,
-    CreateTurnoComponent
+    CreateTurnoComponent,
+    CarouselComponent
   ],
   imports: [
     MdbCarouselModule,
