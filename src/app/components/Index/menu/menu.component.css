@@ -15,7 +15,7 @@ p{
 }
 
 .carousel-caption {
-  background: rgba(27,77,62, 0.50);
+
   filter: alpha(opacity=80);
 }
 
@@ -33,7 +33,7 @@ mdb-carousel-item img {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(27,77,62, 0.50);
   padding: 20px;
   color: #fff;
 }
@@ -63,5 +63,18 @@ mdb-carousel-item img {
 
   .carousel-caption p {
     font-size: 20px;
+  }
+
+  .text-white {
+    font-size: 1.5rem;
+    margin-left: 32px;
+  }
+  .icon {
+    margin-right: 16px; /* Ajusta el tamaño de la separación según tus preferencias */
+  }
+  .text{
+    color: #fefefe;
+    font-size: 2.5rem;
+
   }
 }
