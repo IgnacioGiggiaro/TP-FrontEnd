@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import {Professional} from "../../../models/professional";
 import {ProfessionalService} from "../../../services/professional.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {AuthService} from "@auth0/auth0-angular";
 @Component({
   selector: 'app-list-professional',
   templateUrl: './list-professional.component.html',
@@ -12,7 +13,8 @@ export class ListProfessionalComponent implements OnInit {
   listProfessional: Professional[] = [];
   constructor(private _professionalService: ProfessionalService,
               private toastr: ToastrService,
-              private router: Router) {
+              private router: Router,
+              private auth:AuthService) {
   }
 
   ngOnInit(): void {this.getProfessional();

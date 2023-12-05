@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {AuthGuard} from '@auth0/auth0-angular'
 // Componentes
 import {ListarPacientesComponent} from "./components/Paciente/listar-pacientes/listar-pacientes.component";
 import {CrearPacienteComponent} from "./components/Paciente/crear-paciente/crear-paciente.component";
@@ -15,32 +16,33 @@ import {ListOneProfComponent} from "./components/Professional/list-one-prof/list
 import {CreateTurnoComponent} from "./components/Turno/create-turno/create-turno.component";
 
 const routes: Routes = [
+
   //Menu Route
-  {path: '', component:MenuComponent},
+  {path: 'menu', component:MenuComponent},
 
   //Paciente Routes
-  {path: 'crear-paciente', component:CrearPacienteComponent },
-  {path: 'editar-paciente/:id', component:CrearPacienteComponent },
-  {path: 'list-paciente', component:ListarPacientesComponent },
+  {path: 'crear-paciente', component:CrearPacienteComponent,canActivate:[AuthGuard] },
+  {path: 'editar-paciente/:id', component:CrearPacienteComponent,canActivate:[AuthGuard] },
+  {path: 'list-paciente', component:ListarPacientesComponent,canActivate:[AuthGuard] },
 
   //Practice Routes
-  {path: 'create-practice', component:CreatePracticeComponent },
-  {path: 'editar-practice/:id', component: CreatePracticeComponent},
+  {path: 'create-practice', component:CreatePracticeComponent,canActivate:[AuthGuard] },
+  {path: 'editar-practice/:id', component: CreatePracticeComponent,canActivate:[AuthGuard]},
   {path: 'list-practice', component:ListPracticeComponent},
 
   //OS Routes
-  {path:'create-os', component:CreateOSComponent},
-  {path:'edit-os/:id', component:CreateOSComponent},
+  {path:'create-os', component:CreateOSComponent, canActivate:[AuthGuard]},
+  {path:'edit-os/:id', component:CreateOSComponent, canActivate:[AuthGuard]},
   {path:'list-os', component:ListOSComponent},
 
   //Prof Routes
-  {path:'create-professional', component:CreateProfessionalComponent},
-  {path:'edit-professional/:id', component:CreateProfessionalComponent},
+  {path:'create-professional', component:CreateProfessionalComponent, canActivate:[AuthGuard]},
+  {path:'edit-professional/:id', component:CreateProfessionalComponent, canActivate:[AuthGuard]},
   {path:'list-professional', component:ListProfessionalComponent},
   {path:'list-one-prof/:id', component:ListOneProfComponent},
 
   //Turnos Routes
-  {path:'create-turno/:id', component:CreateTurnoComponent},
+  {path:'create-turno/:id', component:CreateTurnoComponent, canActivate:[AuthGuard]},
 
   //Default Route
   {path:'**', redirectTo: '', pathMatch:'full'}];

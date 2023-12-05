@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthModule } from '@auth0/auth0-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
@@ -21,6 +22,9 @@ import { ListOneProfComponent } from './components/Professional/list-one-prof/li
 import { CreateTurnoComponent } from './components/Turno/create-turno/create-turno.component';
 
 import {MdbCarouselModule} from "mdb-angular-ui-kit/carousel";
+import {LogoutButtonComponent} from "./components/boton-cerrar-sesion";
+import {LoginButtonComponent} from "./components/boton-iniciar-sesion";
+import {UserProfileComponent} from "./components/perfil-usuario";
 
 @NgModule({
   declarations: [
@@ -36,10 +40,22 @@ import {MdbCarouselModule} from "mdb-angular-ui-kit/carousel";
     ListProfessionalComponent,
     ListOneProfComponent,
     CreateTurnoComponent,
+    LogoutButtonComponent,
+    LoginButtonComponent,
+    UserProfileComponent
   ],
   imports: [
     MdbCarouselModule,
     BrowserModule,
+    AuthModule.forRoot({
+      domain: 'dev-h5ly1w0dacya3m3n.us.auth0.com',
+      clientId: 'dZYDACE1y6YtFEYX1JMRp1lKAX9GvUfe',
+      cacheLocation:'localstorage',
+      useRefreshTokens:true,
+      authorizationParams: {
+        redirect_uri: 'http://localhost:4200'
+      }
+    }),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
