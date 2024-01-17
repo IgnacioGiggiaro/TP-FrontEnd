@@ -42,31 +42,31 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr *ngFor="let t of turnos">
-
-                      <td>
-                        <button (click)="createTurno(t.hora)"
-                          class="btn btn-info"
-                          [disabled]="t.busy"
-                        >
-                          {{ decimalAHora(t.hora) }}
-                        </button>
-                      </td>
-                    </tr>
-                    </tbody>
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                      <table>
+                        <ng-container *ngFor="let group of turnos; let i = index">
+                          <tr>
+                            <td *ngFor="let t of turnos.slice(i * 4, (i + 1) * 4)" style="margin: 10px 0;">
+                             <span>
+                              <button (click)="createTurno(t.hora)"
+                              class="btn btn-info"
+                              [disabled]="t.busy">
+                                {{ decimalAHora(t.hora) }}
+                              </button>
+                             </span>
+                            </td>
+                          </tr>
+                        </ng-container>
+                      </table>
+                    </div>
                   </table>
                 </div>
               </div>
-
-
-
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
-
 </form>
 
