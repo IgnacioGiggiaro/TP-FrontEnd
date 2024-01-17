@@ -43,7 +43,15 @@
                     </thead>
                     <tbody>
                     <tr *ngFor="let t of turnos">
-                      <td><button (click)="createTurno(t)" class="btn btn-info">{{ decimalAHora(t) }}</button></td>
+
+                      <td>
+                        <button (click)="createTurno(t.hora)"
+                          class="btn btn-info"
+                          [disabled]="t.busy"
+                        >
+                          {{ decimalAHora(t.hora) }}
+                        </button>
+                      </td>
                     </tr>
                     </tbody>
                   </table>

@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import {ProfessionalService} from "../../../services/professional.service";
 import {Turno} from '../../../models/turno'
+import {Turn} from "../../../models/turn"
 import {TurnoService} from "../../../services/turno.service";
 import {ObraSocial} from "../../../models/obraSocial";
 import {ObraSocialService} from "../../../services/obra-social.service";
@@ -20,7 +21,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./create-turno.component.css']
 })
 export class CreateTurnoComponent implements OnInit {
-  turnos: number[]=[];
+  turnos: Turn[]=[];
   listOs: ObraSocial[]=[];
   listPrac:Practice[]=[];
   listPaciente: Paciente[]=[];
