@@ -13,6 +13,7 @@ import {ActivatedRoute} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import * as moment from "moment";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Professional} from "../../../models/professional";
 
 
 @Component({
@@ -27,6 +28,7 @@ export class CreateTurnoComponent implements OnInit {
   listPaciente: Paciente[]=[];
 
   fechaForm: FormGroup;
+  professional!:Professional;
   id:string|null;
   co!: number;
   osid!:string;
@@ -50,6 +52,7 @@ export class CreateTurnoComponent implements OnInit {
   ngOnInit(): void {this.getObraSociales();
     this.getPractica();
     this.getPaciente();
+    this.getProfessionalByID(this.id);
   }
 
 
@@ -147,6 +150,18 @@ export class CreateTurnoComponent implements OnInit {
   updatePac({e}: { e: any }){
     this.pacId = e.target.value;
     console.log(this.pacId)
+  }
+  getProfessionalByID(_id: any) {
+    if (_id !== null) {
+      this._profService.getProfessional(_id).subscribe(
+        res => {
+          this.professional=(res);
+          console.log(this.professional);
+        }, error => {
+          console.log(error)
+        }
+      )
+    }
   }
 }
 
