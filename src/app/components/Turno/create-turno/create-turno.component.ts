@@ -29,6 +29,9 @@ export class CreateTurnoComponent implements OnInit {
 
   fechaForm: FormGroup;
   professional!:Professional;
+  dayName: string;
+  monthName: string;
+  dayNumber: string;
   id:string|null;
   co!: number;
   osid!:string;
@@ -77,6 +80,23 @@ export class CreateTurnoComponent implements OnInit {
 
   }
 
+  getDayName(fecha: string) {
+    return moment(fecha).utcOffset('0300').format('dddd');
+  }
+
+  getDayNumber(fecha: string) {
+    return moment(fecha).utcOffset('0300').format('D');
+  }
+
+  getMonthName(fecha: string) {
+    return moment(fecha).utcOffset('0300').format('MMMM');
+  }
+
+  assignValues(fecha: string) {
+    this.dayName = this.getDayName(fecha);
+    this.dayNumber = this.getDayNumber(fecha);
+    this.monthName = this.getMonthName(fecha);
+  }
 
   createTurno(t: number) {
     console.log(t);

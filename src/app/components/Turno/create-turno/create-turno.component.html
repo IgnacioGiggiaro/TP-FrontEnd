@@ -5,7 +5,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-5">
-              <div class="card">
+              <div class="card bg-light shadow">
                 <div class="row">
                   <div class="col-md-3">
                     <img src="../../../../assets/muser-dr-512.png" class="img-fluid rounded-start" alt="...">
@@ -17,28 +17,31 @@
               </div>
             </div>
             <div class="col-md-7">
-              <div class="card">
+              <div class="card bg-light shadow">
                 <div class="card-body">
 
                   <div *ngIf="co==1" class="container d-flex justify-content-center align-items-center">
                     <div class="card ">
                       <div class="card-body text-center table-responsive">
-                        <table class="table">
+                        <table class="table" style="display: flex; justify-content: center; align-items: center;">
                           <thead>
                           <tr>
                             <th scope="col">Horarios Disponibles</th>
-                            <th scope="col"></th>
+                          </tr>
+                          <tr>
+                            <span>{{ this.dayName }}, {{ this.monthName }} {{ this.dayNumber }} </span>
                           </tr>
                           </thead>
-                          <tbody>
-                          <div style="display: flex; justify-content: center; align-items: center;">
+                          <tbody >
+                          <div>
                             <table>
-                              <ng-container *ngFor="let group of turnos; let i = index" class="container d-flex justify-content-center align-items-center">
+                              <ng-container *ngFor="let group of turnos; let i = index">
                                 <tr>
-                                  <td *ngFor="let t of turnos.slice(i * 4, (i + 1) * 4)" style="margin: 10px 0;">
+                                  <td *ngFor="let t of turnos.slice(i * 4, (i + 1) * 4)" style="margin: 10px 0; ">
                              <span>
                               <button (click)="createTurno(t.hora)"
                                       class="btn btn-info"
+                                      style="min-width: 68.33px;"
                                       [disabled]="t.busy">
                                 {{ decimalAHora(t.hora) }}
                               </button>
@@ -84,7 +87,7 @@
           </div>
           <div class="d-grid gap-2 d-md-flex justify-content-center">
 
-            <button type="submit" (click)="co=1" [disabled]="fechaForm.invalid" class="btn btn-info btn-lg float-end" > Buscar Turno</button>
+            <button type="submit" (click)="co=1; this.assignValues(this.fechaForm.get('fecha')?.value)" [disabled]="fechaForm.invalid" class="btn btn-info btn-lg float-end" > Buscar Turno</button>
 
 
           </div>
