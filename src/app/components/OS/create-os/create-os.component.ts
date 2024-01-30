@@ -22,7 +22,9 @@ export class CreateOSComponent implements OnInit {
               private _osService: ObraSocialService,
               private aRouter: ActivatedRoute) {
   this.OSForm=this.fb.group({
-    nombre: ['', Validators.required]
+    nombre: ['', Validators.required],
+    imgURL: ['', Validators.required]
+
   })
     this._id=this.aRouter.snapshot.paramMap.get('id');
   }
@@ -38,7 +40,8 @@ export class CreateOSComponent implements OnInit {
 
   createOS(OSForm: NgForm){
      const os: ObraSocial={
-    nombre: this.OSForm.get('nombre')?.value,
+        nombre: this.OSForm.get('nombre')?.value,
+        imgURL : this.OSForm.get('imgURL')?.value
     };
     console.log(os)
     this._osService.createOS(os).subscribe(
@@ -59,6 +62,7 @@ export class CreateOSComponent implements OnInit {
         data=>{
           this.OSForm.setValue({
               nombre: data.nombre,
+              imgURL: data.imgURL
             }
           )
         }
@@ -69,6 +73,7 @@ export class CreateOSComponent implements OnInit {
   updateOS(id: any) {
     const os: ObraSocial = {
       nombre: this.OSForm.get('nombre')?.value,
+      imgURL: this.OSForm.get('imgURL')?.value
     }
     this._osService.updateOS(id, os).subscribe( res=> {
       this.toastr.success('The OS was successfully updated', 'OS Updated!')

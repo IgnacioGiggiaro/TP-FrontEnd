@@ -18,6 +18,13 @@
               </div>
             </div>
             <div class="mb-3">
+              <!-- Campo de entrada para el atributo "imgURL" -->
+              <input type="text" formControlName="imgURL" class="form-control form-control-lg" placeholder="URL de la imagen">
+              <div class="text-danger" *ngIf="OSForm.get('imgURL')?.hasError('required') && OSForm.get('imgURL')?.touched">
+                <span>La URL de la imagen <strong>es obligatoria</strong></span>
+              </div>
+            </div>
+            <div class="mb-3">
               <button [routerLink]="['/list-os']" class="btn btn-secondary btn-lg float-start">VOLVER</button>
               <button type="submit" [disabled]="OSForm.invalid" class="btn btn-success btn-lg float-end">ACEPTAR</button>
             </div>
@@ -34,6 +41,12 @@
                 <div class="text-danger"
                      *ngIf="OSForm.get('nombre')?.hasError('required') && OSForm.get('nombre')?.touched">
                   <span>El nombre <strong>es obligatorio</strong></span>
+                </div>
+              </div>
+              <div class="mb-3">
+                <input type="text" formControlName="imgURL" class="form-control form-control-lg" placeholder="URL de la imagen">
+                <div class="text-danger" *ngIf="OSForm.get('imgURL')?.hasError('required') && OSForm.get('imgURL')?.touched">
+                  <span>La URL de la imagen <strong>es obligatoria</strong></span>
                 </div>
               </div>
               <div class="mb-3">
