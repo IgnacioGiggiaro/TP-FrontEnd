@@ -2,32 +2,26 @@
   <div class="row">
     <div class="col-lg-10 offset-lg-1">
       <div class="card">
-        <div class="card-body text-center table-responsive">
+        <div class="card-body text-center">
           <span class="titulo">Obras sociales</span>
           <button class="btn btn-success float-end" routerLink="/create-os">New</button>
-          <table *ngIf="listOS; else nohay" class="table table-striped  mt-3">
-            <thead>
-            <tr>
-              <th scope="col">Nombre</th>
-              <th scope="col"></th>
-              <td>
-
-              </td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let os of listOS">
-              <td>{{ os.nombre }}</td>
-              <td>
-                <i [routerLink]="['/edit-os/', os._id]" class="fa-solid fa-pen-to-square text-primary"></i>
-                <i (click)="deleteObraSocial(os._id)" class="fa-solid fa-trash text-danger "></i>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-          <ng-template #nohay><h5>It seems that they aren't any OS </h5></ng-template>
-
-
+          <div *ngIf="listOS; else nohay" class="mt-3">
+            <div class="os-container">
+              <ng-container *ngFor="let os of listOS">
+                <div class="col">
+                  <div class="card">
+                    <img src="../../../../assets/img/osde_logo.png" class="card-img-top" alt="Obra Social Image">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ os.nombre }}</h5>
+                      <i [routerLink]="['/edit-os/', os._id]" class="fa-solid fa-pen-to-square text-primary"></i>
+                      <i (click)="deleteObraSocial(os._id)" class="fa-solid fa-trash text-danger"></i>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <ng-template #nohay><h5>It seems that there aren't any OS</h5></ng-template>
         </div>
       </div>
     </div>
