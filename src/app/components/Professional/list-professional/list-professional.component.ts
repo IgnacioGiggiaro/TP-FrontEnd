@@ -13,8 +13,7 @@ export class ListProfessionalComponent implements OnInit {
   listProfessional: Professional[] = [];
   constructor(private _professionalService: ProfessionalService,
               private toastr: ToastrService,
-              private router: Router,
-              private auth:AuthService) {
+              private router: Router) {
   }
 
   ngOnInit(): void {this.getProfessional();
