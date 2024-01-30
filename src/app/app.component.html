@@ -11,9 +11,7 @@
       <a class="nav-item nav-link text-light" href="list-professional">Profesionales </a>
       <a class="nav-item nav-link text-light" href="list-practice" >Practicas</a>
       <a class="nav-item nav-link text-light" href="list-os" >Obra Sociales</a>
-      <a class="nav-item nav-link text-light" href=#bottom *ngIf="(auth.isAuthenticated$ | async)">Contacto</a>
-      <app-login-button *ngIf="!(auth.isAuthenticated$ | async)"></app-login-button>
-      <app-logout-button *ngIf="(auth.isAuthenticated$ | async)"></app-logout-button>
+      <a class="nav-item nav-link text-light" href=#bottom>Contacto</a>
     </ul>
 
   </div>

@@ -22,9 +22,6 @@ import { ListOneProfComponent } from './components/Professional/list-one-prof/li
 import { CreateTurnoComponent } from './components/Turno/create-turno/create-turno.component';
 
 import {MdbCarouselModule} from "mdb-angular-ui-kit/carousel";
-import {LogoutButtonComponent} from "./components/boton-cerrar-sesion";
-import {LoginButtonComponent} from "./components/boton-iniciar-sesion";
-import {UserProfileComponent} from "./components/perfil-usuario";
 
 @NgModule({
   declarations: [
@@ -40,22 +37,10 @@ import {UserProfileComponent} from "./components/perfil-usuario";
     ListProfessionalComponent,
     ListOneProfComponent,
     CreateTurnoComponent,
-    LogoutButtonComponent,
-    LoginButtonComponent,
-    UserProfileComponent
   ],
   imports: [
     MdbCarouselModule,
     BrowserModule,
-    AuthModule.forRoot({
-      domain: 'dev-h5ly1w0dacya3m3n.us.auth0.com',
-      clientId: 'dZYDACE1y6YtFEYX1JMRp1lKAX9GvUfe',
-      cacheLocation:'localstorage',
-      useRefreshTokens:true,
-      authorizationParams: {
-        redirect_uri: 'http://localhost:4200'
-      }
-    }),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

@@ -1,6 +1,5 @@
 
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import{UserProfileComponent} from "../../perfil-usuario";
 import {AuthService} from "@auth0/auth0-angular";
 
 @Component({
@@ -38,5 +37,5 @@ export class MenuComponent implements AfterViewInit {
       this.mapOptions);
     this.marker.setMap(this.map);
   }
-  constructor(public auth: AuthService) {}
+
 }

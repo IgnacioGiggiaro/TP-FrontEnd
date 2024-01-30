@@ -21,31 +21,31 @@ const routes: Routes = [
   {path: 'menu', component:MenuComponent},
 
   //Paciente Routes
-  {path: 'crear-paciente', component:CrearPacienteComponent,canActivate:[AuthGuard] },
-  {path: 'editar-paciente/:id', component:CrearPacienteComponent,canActivate:[AuthGuard] },
-  {path: 'list-paciente', component:ListarPacientesComponent,canActivate:[AuthGuard] },
+  {path: 'crear-paciente', component:CrearPacienteComponent},
+  {path: 'editar-paciente/:id', component:CrearPacienteComponent},
+  {path: 'list-paciente', component:ListarPacientesComponent},
 
   //Practice Routes
-  {path: 'create-practice', component:CreatePracticeComponent,canActivate:[AuthGuard] },
-  {path: 'editar-practice/:id', component: CreatePracticeComponent,canActivate:[AuthGuard]},
+  {path: 'create-practice', component:CreatePracticeComponent},
+  {path: 'editar-practice/:id', component: CreatePracticeComponent},
   {path: 'list-practice', component:ListPracticeComponent},
 
   //OS Routes
-  {path:'create-os', component:CreateOSComponent, canActivate:[AuthGuard]},
-  {path:'edit-os/:id', component:CreateOSComponent, canActivate:[AuthGuard]},
+  {path:'create-os', component:CreateOSComponent},
+  {path:'edit-os/:id', component:CreateOSComponent},
   {path:'list-os', component:ListOSComponent},
 
   //Prof Routes
-  {path:'create-professional', component:CreateProfessionalComponent, canActivate:[AuthGuard]},
-  {path:'edit-professional/:id', component:CreateProfessionalComponent, canActivate:[AuthGuard]},
+  {path:'create-professional', component:CreateProfessionalComponent},
+  {path:'edit-professional/:id', component:CreateProfessionalComponent},
   {path:'list-professional', component:ListProfessionalComponent},
   {path:'list-one-prof/:id', component:ListOneProfComponent},
 
   //Turnos Routes
-  {path:'create-turno/:id', component:CreateTurnoComponent, canActivate:[AuthGuard]},
+  {path:'create-turno/:id', component:CreateTurnoComponent},
 
   //Default Route
-  {path:'**', redirectTo: '', pathMatch:'full'}];
+  {path:'**', redirectTo: 'menu', pathMatch:'full'}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -7,9 +7,8 @@ import {AuthService} from "@auth0/auth0-angular";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'auth0';
+  title = 'clinica';
 
-  constructor(public auth:AuthService) {
-  }
+
 
 }
