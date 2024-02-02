@@ -30,4 +30,5 @@ export class PracticeService {
   getPractice(id: string): Observable<any> {
     return this.http.get(this.url + id);
   }
+
 }

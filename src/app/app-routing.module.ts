@@ -14,6 +14,7 @@ import {ListProfessionalComponent} from "./components/Professional/list-professi
 import {CreateProfessionalComponent} from "./components/Professional/create-professional/create-professional.component";
 import {ListOneProfComponent} from "./components/Professional/list-one-prof/list-one-prof.component";
 import {CreateTurnoComponent} from "./components/Turno/create-turno/create-turno.component";
+import {LoginComponent} from "./components/Paciente/login/login.component";
 
 const routes: Routes = [
 
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'crear-paciente', component:CrearPacienteComponent},
   {path: 'editar-paciente/:id', component:CrearPacienteComponent},
   {path: 'list-paciente', component:ListarPacientesComponent},
+  {path: 'login', component:LoginComponent},
 
   //Practice Routes
   {path: 'create-practice', component:CreatePracticeComponent},

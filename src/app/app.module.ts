@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CrearPacienteComponent } from './components/Paciente/crear-paciente/crear-paciente.component';
-import { ListarPacientesComponent } from './components/Paciente/listar-pacientes/listar-pacientes.component';
+import { ListarPacientesComponent } from './components/Paciente/listar-pacientes/listar-pacientes.component'
 import { MenuComponent } from './components/Index/menu/menu.component';
 import { CreatePracticeComponent } from './components/Practice/create-practice/create-practice.component';
 import { ListPracticeComponent } from './components/Practice/list-practice/list-practice.component';
@@ -22,6 +22,7 @@ import { ListOneProfComponent } from './components/Professional/list-one-prof/li
 import { CreateTurnoComponent } from './components/Turno/create-turno/create-turno.component';
 
 import {MdbCarouselModule} from "mdb-angular-ui-kit/carousel";
+import { LoginComponent } from './components/Paciente/login/login.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {MdbCarouselModule} from "mdb-angular-ui-kit/carousel";
     ListProfessionalComponent,
     ListOneProfComponent,
     CreateTurnoComponent,
+    LoginComponent,
   ],
   imports: [
     MdbCarouselModule,

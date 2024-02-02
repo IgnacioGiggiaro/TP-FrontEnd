@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Paciente} from "../models/paciente";
+import {Usuario} from "../models/usuario";
 import {environment} from "../../environments/environment";
 
 @Injectable({
@@ -10,6 +11,7 @@ import {environment} from "../../environments/environment";
 export class PacienteService {
 
   url = environment.route + 'Paciente/'
+  url2= environment.route + 'Paciente/login'
 
   constructor(private http: HttpClient) { }
 
@@ -29,5 +31,9 @@ export class PacienteService {
 
   obtenerPaciente(id: string): Observable<any> {
     return this.http.get(this.url + id);
+  }
+
+  login(formValue: any): Observable<any>{
+    return this.http.post(this.url2,formValue);
   }
 }
