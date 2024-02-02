@@ -37,6 +37,8 @@ export class CreateTurnoComponent implements OnInit {
   osid!:string;
   pid!:string;
   pacId!:string;
+  token: string | null = null;
+  master: string | null = null;
   constructor(
     private fb:FormBuilder,
     private _profService: ProfessionalService,
@@ -52,7 +54,22 @@ export class CreateTurnoComponent implements OnInit {
     this.id=this.aRouter.snapshot.paramMap.get('id');
   }
 
-  ngOnInit(): void {this.getObraSociales();
+  ngOnInit(): void {
+    if(localStorage.getItem('token')!=null)
+    {
+      this.token= localStorage.getItem('token');
+    }
+    else{
+      this.token = null;
+    }
+    if(localStorage.getItem('master')!=null)
+    {
+      this.master= localStorage.getItem('master');;
+    }
+    else{
+      this.master = null;
+    }
+    this.getObraSociales();
     this.getPractica();
     this.getPaciente();
     this.getProfessionalByID(this.id);

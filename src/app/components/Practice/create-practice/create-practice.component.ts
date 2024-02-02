@@ -13,6 +13,8 @@ export class CreatePracticeComponent implements OnInit {
   practiceForm: FormGroup;
   titulo = 'Crear practice';
   id: string | null;
+  token: string | null = null;
+  master: string | null = null;
   constructor(private fb: FormBuilder,
               private router: Router,
               private toastr: ToastrService,
@@ -25,7 +27,22 @@ export class CreatePracticeComponent implements OnInit {
     })
     this.id = this.aRouter.snapshot.paramMap.get('id');}
 
-  ngOnInit(): void { this.esEditar();
+  ngOnInit(): void {
+    if(localStorage.getItem('token')!=null)
+    {
+      this.token= localStorage.getItem('token');
+    }
+    else{
+      this.token = null;
+    }
+    if(localStorage.getItem('master')!=null)
+    {
+      this.master= localStorage.getItem('master');;
+    }
+    else{
+      this.master = null;
+    }
+    this.esEditar();
   }
 
   createPractice() {

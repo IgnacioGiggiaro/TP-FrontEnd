@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-body text-center">
           <span class="titulo">Obras sociales</span>
-          <button class="btn btn-success float-end" routerLink="/create-os">New</button>
+          <button *ngIf="this.master=='true'" class="btn btn-success float-end" routerLink="/create-os">New</button>
           <div *ngIf="listOS; else nohay" class="mt-3">
             <div class="os-container">
               <ng-container *ngFor="let os of listOS">
@@ -13,8 +13,8 @@
                     <img src="../../../../assets/img/osde_logo.png" class="card-img-top" alt="Obra Social Image">
                     <div class="card-body">
                       <h5 class="card-title">{{ os.nombre }}</h5>
-                      <i [routerLink]="['/edit-os/', os._id]" class="fa-solid fa-pen-to-square text-primary"></i>
-                      <i (click)="deleteObraSocial(os._id)" class="fa-solid fa-trash text-danger"></i>
+                      <i *ngIf="this.master=='true'" [routerLink]="['/edit-os/', os._id]" class="fa-solid fa-pen-to-square text-primary"></i>
+                      <i *ngIf="this.master=='true'" (click)="deleteObraSocial(os._id)" class="fa-solid fa-trash text-danger"></i>
                     </div>
                   </div>
                 </div>

@@ -10,9 +10,26 @@ import {ObraSocial} from "../../../models/obraSocial";
 })
 export class ListOSComponent implements OnInit {
   listOS: ObraSocial[]=[];
+
+  token: string | null = null;
+  master: string | null = null;
   constructor(public obraSocialService : ObraSocialService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('token')!=null)
+    {
+      this.token= localStorage.getItem('token');
+    }
+    else{
+      this.token = null;
+    }
+    if(localStorage.getItem('master')!=null)
+    {
+      this.master= localStorage.getItem('master');;
+    }
+    else{
+      this.master = null;
+    }
     this.getObrasSociales();
   }
 

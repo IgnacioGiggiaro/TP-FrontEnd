@@ -11,10 +11,26 @@ import {Paciente} from "../../../models/paciente";
 })
 export class ListarPacientesComponent implements OnInit {
   listPacientes: Paciente[] = [];
+  token: string | null = null;
+  master: string | null = null;
   constructor(private _pacienteService: PacienteService,
               private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('token')!=null)
+    {
+      this.token= localStorage.getItem('token');
+    }
+    else{
+      this.token = null;
+    }
+    if(localStorage.getItem('master')!=null)
+    {
+      this.master= localStorage.getItem('master');;
+    }
+    else{
+      this.master = null;
+    }
     this.obtenerPacientes();
   }
 

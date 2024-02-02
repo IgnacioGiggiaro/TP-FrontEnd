@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-body text-center table-responsive">
           <span class="titulo">Listado de Profesionales</span>
-          <button class="btn btn-success float-end" routerLink="/create-professional">Nuevo</button>
+          <button *ngIf="this.master=='true'" class="btn btn-success float-end" routerLink="/create-professional">Nuevo</button>
           <table *ngIf="listProfessional; else nohay" class="table table-striped  mt-3">
             <div class="container">
               <div class="card mb-3" *ngFor="let prof of listProfessional">

@@ -34,7 +34,7 @@
                           </thead>
                           <tbody >
                           <div>
-                            <table>
+                            <table *ngIf="this.token">
                               <ng-container *ngFor="let group of turnos; let i = index">
                                 <tr>
                                   <td *ngFor="let t of turnos.slice(i * 4, (i + 1) * 4)" style="margin: 10px 0; ">

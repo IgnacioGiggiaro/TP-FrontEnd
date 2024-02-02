@@ -21,7 +21,11 @@ export class MenuComponent implements AfterViewInit {
     zoom: 12
   };
 
+  ngOnInit(): void {
 
+
+
+  }
 
 
   ngAfterViewInit() {

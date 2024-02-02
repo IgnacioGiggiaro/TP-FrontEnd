@@ -11,12 +11,32 @@ import {AuthService} from "@auth0/auth0-angular";
 })
 export class ListProfessionalComponent implements OnInit {
   listProfessional: Professional[] = [];
+  token: string | null = null;
+  master: string | null = null;
+
   constructor(private _professionalService: ProfessionalService,
               private toastr: ToastrService,
               private router: Router) {
   }
 
-  ngOnInit(): void {this.getProfessional();
+  ngOnInit(): void {
+    if(localStorage.getItem('token')!=null)
+    {
+      this.token= localStorage.getItem('token');
+    }
+    else{
+      this.token = null;
+    }
+    if(localStorage.getItem('master')!=null)
+    {
+      this.master= localStorage.getItem('master');;
+    }
+    else{
+      this.master = null;
+    }
+
+
+    this.getProfessional();
   }
 
   getProfessional(){

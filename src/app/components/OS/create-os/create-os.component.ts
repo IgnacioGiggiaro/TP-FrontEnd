@@ -14,6 +14,9 @@ import {__importDefault} from "tslib";
 export class CreateOSComponent implements OnInit {
   OSForm: FormGroup;
 
+  token: string | null = null;
+  master: string | null = null;
+
   titulo= 'Crete OS';
   _id: String | null;
   constructor(private fb: FormBuilder,
@@ -32,6 +35,20 @@ export class CreateOSComponent implements OnInit {
   };*/
 
   ngOnInit(): void {
+    if(localStorage.getItem('token')!=null)
+    {
+      this.token= localStorage.getItem('token');
+    }
+    else{
+      this.token = null;
+    }
+    if(localStorage.getItem('master')!=null)
+    {
+      this.master= localStorage.getItem('master');;
+    }
+    else{
+      this.master = null;
+    }
     this.isEdit();
   }
 

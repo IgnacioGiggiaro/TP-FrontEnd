@@ -1,4 +1,4 @@
-<form [formGroup]="formulario" (ngSubmit)="onSubmit()" >
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
   <div class="mb-3">
     <label>Mail</label>
     <input type="text" class="form-control" formControlName="mail">
@@ -6,6 +6,9 @@
   <div class="mb-3">
     <label>Password</label>
     <input type="password" class="form-control" formControlName="password">
+  </div>
+  <div *ngIf="showError" class="text-danger mb-3">
+    Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.
   </div>
   <input type="submit" value="Enviar" class="btn btn-info">
 </form>
