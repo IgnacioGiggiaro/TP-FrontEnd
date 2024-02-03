@@ -1,5 +1,5 @@
 export class Paciente {
-  _id?:number;
+  _id?:String;
   dni:string;
   nombre: string;
   apellido: string;

@@ -1,7 +1,5 @@
-
-
 export class Turno{
-  _id?:string;
+  _id?:String;
   dia: string;
   hsDesde: number;
   paciente: string;
