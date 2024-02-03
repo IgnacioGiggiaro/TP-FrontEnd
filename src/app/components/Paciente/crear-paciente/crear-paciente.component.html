@@ -1,4 +1,4 @@
-<div *ngIf="this.master=='true'" class="container mt-5">
+<div *ngIf="token==null" class="container mt-5">
   <div class="row">
     <div class="col-lg-6 offset-lg-3">
       <div class="card">
@@ -54,6 +54,14 @@
               <div class="text-danger"
                    *ngIf="pacienteForm.get('mail')?.hasError('required') && pacienteForm.get('mail')?.touched">
                 <span>La dirección de e-mail <strong>es obligatoria</strong></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="password" formControlName="password" class="form-control form-control-lg"
+                     placeholder="Password">
+              <div class="text-danger"
+                   *ngIf="pacienteForm.get('password')?.hasError('required') && pacienteForm.get('password')?.touched">
+                <span>La Contraseña <strong>es obligatoria</strong></span>
               </div>
             </div>
             <div class="mb-3">
@@ -122,6 +130,14 @@
                 <span>La dirección de e-mail <strong>es obligatoria</strong></span>
               </div>
             </div>
+              <div class="mb-3">
+                <input type="password" formControlName="password" class="form-control form-control-lg"
+                       placeholder="Password">
+                <div class="text-danger"
+                     *ngIf="pacienteForm.get('password')?.hasError('required') && pacienteForm.get('password')?.touched">
+                  <span>La Contraseña <strong>es obligatoria</strong></span>
+                </div>
+              </div>
             <div class="mb-3">
               <input type="date" formControlName="fecha_nac" class="form-control form-control-lg"
                      placeholder="Fecha de Nacimiento">

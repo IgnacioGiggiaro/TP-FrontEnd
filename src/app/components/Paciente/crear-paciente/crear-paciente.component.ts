@@ -29,6 +29,7 @@ export class CrearPacienteComponent implements OnInit {
     mail: ['', Validators.required],
     direccion: ['', Validators.required],
     fecha_nac: ['', Validators.required],
+    password: ['', Validators.required],
   })
     this.id = this.aRouter.snapshot.paramMap.get('id');}
 
@@ -61,6 +62,7 @@ export class CrearPacienteComponent implements OnInit {
       mail: this.pacienteForm.get('mail')?.value,
       direccion: this.pacienteForm.get('direccion')?.value,
       fecha_nac: this.pacienteForm.get('fecha_nac')?.value,
+      password:this.pacienteForm.get('password')?.value,
     }
 
     console.log(PACIENTE);
@@ -84,6 +86,7 @@ export class CrearPacienteComponent implements OnInit {
       mail: this.pacienteForm.get('mail')?.value,
       direccion: this.pacienteForm.get('direccion')?.value,
       fecha_nac: this.pacienteForm.get('fecha_nac')?.value,
+      password:this.pacienteForm.get('password')?.value,
     }
 
     console.log(PACIENTE);
@@ -108,7 +111,8 @@ export class CrearPacienteComponent implements OnInit {
           telefono: data.telefono,
           mail: data.mail,
           direccion: data.direccion,
-          fecha_nac: data.fecha_nac
+          fecha_nac: data.fecha_nac,
+          password:data.password,
         })
       })
     }
