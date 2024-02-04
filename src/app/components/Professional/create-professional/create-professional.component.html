@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div *ngIf="this.master=='true'" class="container mt-5">
   <div class="row">
     <div class="col-lg-6 offset-lg-3">
       <div class="card">
@@ -56,18 +56,14 @@
                 <span>La dirección de e-mail <strong>es obligatoria</strong></span>
               </div>
             </div>
-            <div class="mb-3">
-              <input type="date" formControlName="fecha_nac" class="form-control form-control-lg"
-                     placeholder="Fecha de Nacimiento">
-              <div class="text-danger"
-                   *ngIf="professionalForm.get('fecha_nac')?.hasError('required') && professionalForm.get('fecha_nac')?.touched">
-                <span>La fecha de nacimiento <strong>es obligatoria</strong></span>
-              </div>
-            </div>
+
 
 
             <div class="mb-3">
               <button [routerLink]="['/list-professional']" class="btn btn-secondary btn-lg float-start">VOLVER</button>
+              <button [routerLink]="['/add-os',this.id]" class="btn btn-secondary btn-lg float-start">Agregar Obra Social</button>
+              <button [routerLink]="['/add-schedule',this.id]" class="btn btn-secondary btn-lg float-start">Agregar Horario</button>
+              <button [routerLink]="['/add-practice',this.id]" class="btn btn-secondary btn-lg float-start">Agregar Practica</button>
               <button type="submit" [disabled]="professionalForm.invalid" class="btn btn-success btn-lg float-end">ACEPTAR</button>
             </div>
 

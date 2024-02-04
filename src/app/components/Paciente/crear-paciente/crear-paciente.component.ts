@@ -104,14 +104,13 @@ export class CrearPacienteComponent implements OnInit {
     if(this.id !== null) {
       this.titulo = 'Editar producto';
       this._pacienteService.obtenerPaciente(this.id).subscribe(data => {
-        this.pacienteForm.setValue({
+        this.pacienteForm.patchValue({
           dni: data.dni,
           nombre: data.nombre,
           apellido: data.apellido,
           telefono: data.telefono,
           mail: data.mail,
           direccion: data.direccion,
-          fecha_nac: data.fecha_nac,
           password:data.password,
         })
       })

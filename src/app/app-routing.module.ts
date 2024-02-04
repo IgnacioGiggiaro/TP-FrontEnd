@@ -14,6 +14,7 @@ import {ListProfessionalComponent} from "./components/Professional/list-professi
 import {CreateProfessionalComponent} from "./components/Professional/create-professional/create-professional.component";
 import {ListOneProfComponent} from "./components/Professional/list-one-prof/list-one-prof.component";
 import {CreateTurnoComponent} from "./components/Turno/create-turno/create-turno.component";
+import {AddOsComponent} from "./components/Professional/add-os/add-os.component";
 import {LoginComponent} from "./components/Paciente/login/login.component";
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path: 'create-practice', component:CreatePracticeComponent},
   {path: 'editar-practice/:id', component: CreatePracticeComponent},
   {path: 'list-practice', component:ListPracticeComponent},
+  {path: 'list-practice/:id', component:ListPracticeComponent},
 
   //OS Routes
   {path:'create-os', component:CreateOSComponent},
@@ -42,6 +44,7 @@ const routes: Routes = [
   {path:'edit-professional/:id', component:CreateProfessionalComponent},
   {path:'list-professional', component:ListProfessionalComponent},
   {path:'list-one-prof/:id', component:ListOneProfComponent},
+  {path:'add-os/:id', component:AddOsComponent},
 
   //Turnos Routes
   {path:'create-turno/:id', component:CreateTurnoComponent},

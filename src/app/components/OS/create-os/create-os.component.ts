@@ -74,7 +74,7 @@ export class CreateOSComponent implements OnInit {
       this.titulo= 'Edit OS';
       this._osService.getOS(this._id).subscribe(
         data=>{
-          this.OSForm.setValue({
+          this.OSForm.patchValue({
               nombre: data.nombre,
             }
           )

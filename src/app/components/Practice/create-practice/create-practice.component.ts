@@ -86,7 +86,7 @@ export class CreatePracticeComponent implements OnInit {
     if(this.id !== null) {
       this.titulo = 'Editar practica';
       this._practiceService.getPractice(this.id).subscribe(data => {
-        this.practiceForm.setValue({
+        this.practiceForm.patchValue({
 
           nombre: data.nombre,
 

@@ -14,6 +14,8 @@ export class CreateProfessionalComponent implements OnInit {
   professionalForm: FormGroup;
   titulo = 'Create professional';
   id: string | null;
+  token: string | null = null;
+  master: string | null = null;
   constructor(private fb: FormBuilder,
               private router: Router,
               private toastr: ToastrService,
@@ -32,7 +34,23 @@ export class CreateProfessionalComponent implements OnInit {
     )
     this.id = this.aRouter.snapshot.paramMap.get('id');}
 
-  ngOnInit(): void {this.esEditar();
+  ngOnInit(): void {
+    if(localStorage.getItem('token')!=null)
+    {
+      this.token= localStorage.getItem('token');
+    }
+    else{
+      this.token = null;
+    }
+    if(localStorage.getItem('master')!=null)
+    {
+      this.master= localStorage.getItem('master');;
+    }
+    else{
+      this.master = null;
+    }
+
+    this.esEditar();
   }
 
 
@@ -59,7 +77,7 @@ export class CreateProfessionalComponent implements OnInit {
     })
   }
 
-  updateProfessional(id:any){
+  updateProfessional(id:string){
     const PROFESSIONAL: Professional = {
       dni:this.professionalForm.get('dni')?.value,
       nombre: this.professionalForm.get('nombre')?.value,
@@ -84,14 +102,13 @@ export class CreateProfessionalComponent implements OnInit {
     if(this.id !== null) {
       this.titulo = 'Editar professional';
       this._professionalService.getProfessional(this.id).subscribe(data => {
-        this.professionalForm.setValue({
+        this.professionalForm.patchValue({
           dni: data.dni,
           nombre: data.nombre,
           apellido: data.apellido,
           telefono: data.telefono,
           mail: data.mail,
           direccion: data.direccion,
-          fecha_nac: data.fecha_nac,
           matricula: data.matricula,
         })
       })

@@ -34,4 +34,12 @@ export class ProfessionalService {
   retrieveProfessional(id:string, fecha:any): Observable<any>{
     return this.http.get(this.url+ id + '/' +fecha)
   }
+
+  getOS(id: string): Observable<any> {
+    return this.http.get(this.url + id + '/OS');
+  }
+
+  deleteOS(id:string, idOS:string): Observable<any> {
+    return this.http.delete(this.url + id + '/OS/' + idOS);
+  }
 }

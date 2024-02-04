@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   showError: boolean = false; // Propiedad para manejar el estado de error
   token: string | null = null;
   master: string | null = null;
+  userId: string | null = null;
 
   constructor(private _pacienteService: PacienteService,
               private aRouter: ActivatedRoute,
@@ -47,6 +48,13 @@ export class LoginComponent implements OnInit {
     else{
       this.master = null;
     }
+    if(localStorage.getItem('usuario')!=null)
+    {
+      this.master= localStorage.getItem('master');;
+    }
+    else{
+      this.master = null;
+    }
   }
 
   async onSubmit(){
@@ -56,6 +64,7 @@ export class LoginComponent implements OnInit {
         this.showError = false;
         localStorage.setItem('token',this.usuario.token);
         localStorage.setItem('master',String(this.usuario.master));
+        localStorage.setItem('usuarioId',this.usuario.userId);
         console.log(this.usuario);
         this.router.navigate(['/menu']);
       }, error => {
