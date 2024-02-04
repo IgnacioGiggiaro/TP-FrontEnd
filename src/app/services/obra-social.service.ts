@@ -9,7 +9,7 @@ import {environment} from "../../environments/environment";
 })
 export class ObraSocialService {
   url= environment.route + 'ObraSocial/'
-  //La parte del localhost debería estar en un .env
+
   constructor(private http: HttpClient) {}
 
   getOSs(): Observable<ObraSocial[]>{

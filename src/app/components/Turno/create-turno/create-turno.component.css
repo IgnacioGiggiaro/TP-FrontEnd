@@ -1,0 +1,22 @@
+.select-container {
+  position: relative;
+  height: 100%;
+}
+
+.custom-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8" width="8" height="8"><path fill="%23333" d="M4 4L0 0h8zm0 0L0 8h8z"/></svg>') no-repeat right 10px center/8px 8px;
+}
+
+
+.custom-select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
