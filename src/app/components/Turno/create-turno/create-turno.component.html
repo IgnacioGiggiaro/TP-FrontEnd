@@ -79,12 +79,7 @@
               <option  *ngFor="let p of listPrac" data-subtext="Rep California" [value]="p._id" >{{p.nombre}}</option>
             </select>
           </div>
-          <div class="col-2">
-            <select  class="selectpicker" (change)="updatePac({e : $event})">
-              <option></option>
-              <option  *ngFor="let pac of listPaciente" data-subtext="Rep California" [value]="pac._id" >{{pac.nombre}},{{pac.apellido}}</option>
-            </select>
-          </div>
+
           <div class="d-grid gap-2 d-md-flex justify-content-center">
 
             <button type="submit" (click)="co=1; this.assignValues(this.fechaForm.get('fecha')?.value)" [disabled]="fechaForm.invalid" class="btn btn-info btn-lg float-end" > Buscar Turno</button>

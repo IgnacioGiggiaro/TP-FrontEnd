@@ -24,6 +24,8 @@ import {Professional} from "../../../models/professional";
 export class CreateTurnoComponent implements OnInit {
   turnos: Turn[]=[];
   listOs: ObraSocial[]=[];
+  listId: String[]=[];
+  listId2: String[]=[];
   listPrac:Practice[]=[];
   listPaciente: Paciente[]=[];
 
@@ -69,7 +71,7 @@ export class CreateTurnoComponent implements OnInit {
     else{
       this.master = null;
     }
-    this.getObraSociales();
+    this.getOS();
     this.getPractica();
     this.getPaciente();
     this.getProfessionalByID(this.id);
@@ -126,7 +128,7 @@ export class CreateTurnoComponent implements OnInit {
         hsDesde: t,
         professional: this.id,
         obraSocial :this.osid,
-        paciente: this.pacId,
+        paciente: String(localStorage.getItem('usuarioId')),
         practica: this.pid
       }
       console.log(turno);
@@ -151,23 +153,77 @@ export class CreateTurnoComponent implements OnInit {
     return (`${('00'+horas).slice(-2)}:${('00'+minutos).slice(-2)}`);
   }
 
-  getObraSociales(){
-    this._osService.getOSs().subscribe(data=>{
-      this.listOs = (data);
-      console.log(this.listOs);
-    }, error => {
-      console.log(error);
-    })
+  getOS() {
+    this._profService.getOS(String(this.id)).subscribe(
+      data => {
+        if (Array.isArray(data) && data.every(item => typeof item === 'string')) {
+          // Si es un array de strings, asigna a listId y continúa
+          this.listId2 = data;
+          console.log(this.listId2);
+          this.getObraSociales();
+        } else {
+          console.error('Error: La respuesta de getPractice no es un array de strings');
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
-  getPractica(){
-    this._practiceService.getPractices().subscribe(data=>{
-      this.listPrac = (data);
-      console.log(this.listPrac);
-    }, error => {
-      console.log(error);
-    })
+  getObraSociales() {
+    // Limpiar el array existente antes de asignar nuevos valores
+    this.listOs = [];
+
+    // Iterar sobre cada id y obtener la práctica correspondiente
+    this.listId2.forEach(id => {
+      this._osService.getOS(String(id)).subscribe(
+        os => {
+          this.listOs.push(os);
+        },
+        osError => {
+          console.log(osError);
+        }
+      );
+    });
   }
+
+
+  getPractica() {
+    this._profService.getPractice(String(this.id)).subscribe(
+      data => {
+        if (Array.isArray(data) && data.every(item => typeof item === 'string')) {
+          // Si es un array de strings, asigna a listId y continúa
+          this.listId = data;
+          console.log(this.listId);
+          this.getPracticas();
+        } else {
+          console.error('Error: La respuesta de getPractice no es un array de strings');
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  getPracticas() {
+    // Limpiar el array existente antes de asignar nuevos valores
+    this.listPrac = [];
+
+    // Iterar sobre cada id y obtener la práctica correspondiente
+    this.listId.forEach(id => {
+      this._practiceService.getPractice(String(id)).subscribe(
+        practice => {
+          this.listPrac.push(practice);
+        },
+        practiceError => {
+          console.log(practiceError);
+        }
+      );
+    });
+  }
+
   getPaciente(){
     this._pacienteService.getPacientes().subscribe(data=>{
       this.listPaciente=(data);
