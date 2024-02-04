@@ -24,6 +24,7 @@ import { CreateTurnoComponent } from './components/Turno/create-turno/create-tur
 import {MdbCarouselModule} from "mdb-angular-ui-kit/carousel";
 import { LoginComponent } from './components/Paciente/login/login.component';
 import { AddOsComponent } from './components/Professional/add-os/add-os.component';
+import { AddPracticeComponent } from './components/Professional/add-practice/add-practice.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AddOsComponent } from './components/Professional/add-os/add-os.componen
     CreateTurnoComponent,
     LoginComponent,
     AddOsComponent,
+    AddPracticeComponent,
   ],
   imports: [
     MdbCarouselModule,

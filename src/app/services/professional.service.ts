@@ -42,4 +42,19 @@ export class ProfessionalService {
   deleteOS(id:string, idOS:string): Observable<any> {
     return this.http.delete(this.url + id + '/OS/' + idOS);
   }
+
+  addOs(id:string, idOS:string): Observable<any> {
+    return this.http.post(this.url + id + '/OS/' + idOS, null);
+  }
+
+  getPractice(id: string): Observable<any> {
+    return this.http.get(this.url + id + '/Practice');
+  }
+
+  deletePractice(id:string, idPractice:string): Observable<any> {
+    return this.http.delete(this.url + id + '/Practice/' + idPractice);
+  }
+  addPractice(id:string, idPractice:string): Observable<any> {
+    return this.http.post(this.url + id + '/Practice/' + idPractice, null);
+  }
 }

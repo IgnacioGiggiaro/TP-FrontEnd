@@ -8,6 +8,12 @@ import {ObraSocial} from "../../../models/obraSocial";
 import {ObraSocialService} from "../../../services/obra-social.service";
 import {ToastrService} from "ngx-toastr";
 import {Professional} from "../../../models/professional";
+import {Practice} from "../../../models/practice";
+
+interface OSWithFlag extends ObraSocial {
+
+  flag: number;
+}
 
 @Component({
   selector: 'app-add-os',
@@ -15,8 +21,8 @@ import {Professional} from "../../../models/professional";
   styleUrls: ['./add-os.component.css']
 })
 export class AddOsComponent implements OnInit {
-  listOs: ObraSocial[]=[];
-  listId: string[]=[];
+  listOs: OSWithFlag[]=[];
+  listId: Set<string> = new Set();
   id: string | null;
   constructor(
     private _osService: ObraSocialService,
@@ -29,17 +35,26 @@ export class AddOsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.getObrasSociales();
+    this.obtenerObrasSociales();
     this.getObrasSocialesProf()
 
+  }
+
+  obtenerObrasSociales() {
+    this._osService.getOSs().subscribe(data => {
+      this.listOs = data.map(practice => ({ ...practice, flag: 0 }));
+      console.log(this.listOs);
+    }, error => {
+      console.log(error);
+    });
   }
 
   getObrasSocialesProf() {
     this._pfService.getOS(String(this.id)).subscribe(
       data => {
         console.log(data);
-        this.listId = data; // No necesitas los paréntesis aquí
-        this.getObrasSociales(this.listId);
+        this.listId = data;
+        this.updateFlagValues();
       },
       error => {
         console.log(error);
@@ -47,25 +62,32 @@ export class AddOsComponent implements OnInit {
     );
   }
 
-  getObrasSociales(listId: string[]) {
-    // Limpiar el array existente antes de asignar nuevos valores
-    this.listOs = [];
+  updateFlagValues() {
+    console.log("listId:", this.listId);
+    console.log("listPractice:", this.listOs);
 
-    // Iterar sobre cada id y obtener la obra social correspondiente
-    listId.forEach((id: string) => {
-      this._osService.getOS(id).subscribe(
-        osData => {
-          this.listOs.push(osData);
-        },
-        osError => {
-          console.log(osError);
-        }
-      );
+    this.listOs.forEach(os => {
+      const practiceIdAsString = os._id;
+      console.log("Checking for practiceId:", practiceIdAsString);
+
+      // Comparamos utilizando Array.from y includes
+      os.flag = Array.from(this.listId).includes(String(practiceIdAsString)) ? 1 : 0;
     });
+
+    console.log("After updateFlagValues:", this.listOs);
   }
   deleteOS(id:any,idOS:any){
     this._pfService.deleteOS(id,idOS).subscribe(data => {
       this.toastr.error('La Obra Social fue Removida con exito' ,'Obra Social Removida');
+      this.getObrasSocialesProf();
+    }, error => {
+      console.log(error);
+    })
+
+  }
+  addOs(id:any,idOs:any){
+    this._pfService.addOs(id,idOs).subscribe(data => {
+      this.toastr.success('La Obra Social fue agregada con exito' ,'Obra Social agregada');
       this.getObrasSocialesProf();
     }, error => {
       console.log(error);

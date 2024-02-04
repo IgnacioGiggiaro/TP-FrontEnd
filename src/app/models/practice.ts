@@ -3,7 +3,9 @@ export class Practice {
   nombre: string;
 
 
+
   constructor(nombre: string) {
     this.nombre=nombre;
+
   }
 }
