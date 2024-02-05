@@ -59,15 +59,37 @@
 
 
 
-            <div class="mb-3">
-              <button [routerLink]="['/list-professional']" class="btn btn-secondary btn-lg float-start">VOLVER</button>
-              <button [routerLink]="['/add-os',this.id]" class="btn btn-secondary btn-lg float-start">Agregar Obra Social</button>
-              <button [routerLink]="['/add-schedule',this.id]" class="btn btn-secondary btn-lg float-start">Agregar Horario</button>
-              <button [routerLink]="['/add-practice',this.id]" class="btn btn-secondary btn-lg float-start">Agregar Practica</button>
-              <button type="submit" [disabled]="professionalForm.invalid" class="btn btn-success btn-lg float-end">ACEPTAR</button>
+            <div class="mb-3 float-start col-lg-12">
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <button [routerLink]="['/add-os',this.id]" style="margin-bottom: 5px;" class="btn btn-secondary btn-lg">Agregar Obra Social</button>
+                </div>
+                <div class="col-lg-6">
+                  <button [routerLink]="['/add-practice',this.id]" class="btn btn-secondary btn-lg">Agregar Practica</button>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3">
+                </div>
+                <div class="col-lg-6">
+
+                </div>
+                <div class="col-lg-3">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-3">
+                  <button type="submit" [disabled]="professionalForm.invalid" class="btn btn-success btn-lg float-start">ACEPTAR</button>
+                </div>
+                <div class="col-lg-6">
+                </div>
+                <div class="col-lg-3">
+                  <button [routerLink]="['/list-professional']" class="btn btn-secondary btn-lg float-end">VOLVER</button>
+                </div>
+              </div>
             </div>
-
-
 
           </form>
 
