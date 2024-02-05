@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('master',String(this.usuario.master));
         localStorage.setItem('usuarioId',this.usuario.userId);
         console.log(this.usuario);
-        this.router.navigate(['/menu']);
+        this.router.navigate(['menu']);
       }, error => {
         console.log(error)
         this.showError = true;

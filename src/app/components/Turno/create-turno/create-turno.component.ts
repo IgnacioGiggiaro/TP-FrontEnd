@@ -34,6 +34,7 @@ export class CreateTurnoComponent implements OnInit {
   dayName: string;
   monthName: string;
   dayNumber: string;
+
   id:string|null;
   co!: number;
   osid!:string;
@@ -75,6 +76,7 @@ export class CreateTurnoComponent implements OnInit {
     this.getPractica();
     this.getPaciente();
     this.getProfessionalByID(this.id);
+
   }
 
 
@@ -162,7 +164,7 @@ export class CreateTurnoComponent implements OnInit {
           console.log(this.listId2);
           this.getObraSociales();
         } else {
-          console.error('Error: La respuesta de getPractice no es un array de strings');
+          console.error('Error: La respuesta de getOS no es un array de strings');
         }
       },
       error => {

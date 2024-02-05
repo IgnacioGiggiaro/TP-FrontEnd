@@ -12,7 +12,9 @@
                     <img src="../../../../assets/muser-dr-512.png" class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="card-body col-md-9">
-                    <h5 class="card-title">{{professional.nombre}} {{professional.apellido}}</h5>
+                    <span>
+                      <h3 class="card-title">{{professional.nombre}} {{professional.apellido}}</h3>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -56,22 +58,27 @@
                           </thead>
                           <tbody>
                           <div>
-                            <table *ngIf="this.token">
-                              <ng-container *ngFor="let group of turnos; let i = index">
-                                <tr>
-                                  <td *ngFor="let t of turnos.slice(i * 4, (i + 1) * 4)" style="margin: 10px 0; ">
-                             <span>
-                              <button (click)="createTurno(t.hora)"
+                            <div *ngIf="token; else noTokenMessage">
+                              <table>
+                                <ng-container *ngFor="let group of turnos; let i = index">
+                                  <tr>
+                                    <td *ngFor="let t of turnos.slice(i * 4, (i + 1) * 4)" style="margin: 10px 0; ">
+                                    <span>
+                                      <button (click)="createTurno(t.hora)"
                                       class="btn btn-info"
                                       style="min-width: 68.33px;"
                                       [disabled]="t.busy">
-                                {{ decimalAHora(t.hora) }}
-                              </button>
-                             </span>
-                                  </td>
-                                </tr>
-                              </ng-container>
-                            </table>
+                                      {{ decimalAHora(t.hora) }}
+                                      </button>
+                                     </span>
+                                    </td>
+                                  </tr>
+                                </ng-container>
+                              </table>
+                            </div>
+                            <ng-template #noTokenMessage>
+                              <h3>Debe registrarse para ver los horarios disponibles</h3>
+                            </ng-template>
                           </div>
                         </table>
                       </div>

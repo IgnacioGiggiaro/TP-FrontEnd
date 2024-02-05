@@ -19,7 +19,5 @@ export class Professional {
     this.direccion=direccion;
     this.fecha_nac=fecha_nac;
     this.matricula=matricula;
-
-
   }
 }
