@@ -1,6 +1,11 @@
 
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+// @ts-ignore
+import * as L from 'leaflet';
+
+
 import {AuthService} from "@auth0/auth0-angular";
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-menu',
@@ -15,15 +20,7 @@ export class MenuComponent implements AfterViewInit {
   lng = -60.64382;
 
   coordinates = new google.maps.LatLng(this.lat, this.lng);
-
-  mapOptions: google.maps.MapOptions = {
-    center: this.coordinates,
-    zoom: 12
-  };
-
   ngOnInit(): void {
-
-
 
   }
 
@@ -37,9 +34,17 @@ export class MenuComponent implements AfterViewInit {
   });
 
   mapInitializer() {
-    this.map = new google.maps.Map(this.gmap.nativeElement,
-      this.mapOptions);
-    this.marker.setMap(this.map);
+
+
+    let mymap = L.map('map').setView([this.lat, this.lng], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(mymap);
+    L.marker([-32.9547, -60.6439]).addTo(mymap)
+      .bindPopup('¡Aquí estamos!')
+      .openPopup();
   }
+
 
 }

@@ -9,7 +9,7 @@
               <ng-container *ngFor="let os of listOs">
                 <div class="col">
                   <div class="card">
-                    <img src="../../../../assets/img/osde_logo.png" class="card-img-top" alt="Obra Social Image">
+                    <img src="{{os.imgURL}}" class="card-img-top" alt="Obra Social Image">
                     <div class="card-body">
                       <h5 class="card-title">{{ os.nombre }}</h5>
                       <i *ngIf="os.flag==0" (click)="addOs(id,os._id)" class="fa-solid fa-pen-to-square text-primary"></i>
