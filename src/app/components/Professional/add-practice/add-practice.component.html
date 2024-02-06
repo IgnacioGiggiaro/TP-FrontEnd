@@ -16,7 +16,7 @@
             <tr *ngFor="let practice of listPractice">
               <td>{{ practice.nombre }}</td>
               <td>
-                <i  *ngIf="practice.flag==0" (click)="addPractice(id,practice._id)" class="fa-solid fa-pen-to-square text-primary"></i>
+                <i  *ngIf="practice.flag==0" (click)="addPractice(id,practice._id)" class="fa-solid fa-check text-primary"></i>
                 <i  *ngIf="practice.flag==1" (click)="deletePractice(id,practice._id)" class="fa-solid fa-trash text-danger "></i>
               </td>
             </tr>

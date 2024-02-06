@@ -17,7 +17,7 @@
               <td class="text-center align-middle">{{ practice.nombre }}</td>
               <td class="text-center align-middle">
                 <i *ngIf="this.master=='true'" [routerLink]="['/editar-practice', practice._id]" class="fa-solid fa-pen-to-square text-primary"></i>
-                <i *ngIf="this.master=='true'" (click)="eliminarPractice(practice._id)" class="fa-solid fa-trash text-danger"></i>
+                <i *ngIf="this.master=='true'" (click)="eliminarPractice(practice._id)" style="margin-left: 10px;" class="fa-solid fa-trash text-danger"></i>
               </td>
             </tr>
             </tbody>
