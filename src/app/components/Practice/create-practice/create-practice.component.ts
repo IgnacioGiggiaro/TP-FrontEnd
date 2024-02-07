@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { Practice } from 'src/app/models/practice';
-import { PracticeService } from 'src/app/services/practice.service';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
+import {Practice} from 'src/app/models/practice';
+import {PracticeService} from 'src/app/services/practice.service';
+
 @Component({
   selector: 'app-create-practice',
   templateUrl: './create-practice.component.html',
@@ -15,6 +16,7 @@ export class CreatePracticeComponent implements OnInit {
   id: string | null;
   token: string | null = null;
   master: string | null = null;
+
   constructor(private fb: FormBuilder,
               private router: Router,
               private toastr: ToastrService,
@@ -25,21 +27,19 @@ export class CreatePracticeComponent implements OnInit {
       nombre: ['', Validators.required],
 
     })
-    this.id = this.aRouter.snapshot.paramMap.get('id');}
+    this.id = this.aRouter.snapshot.paramMap.get('id');
+  }
 
   ngOnInit(): void {
-    if(localStorage.getItem('token')!=null)
-    {
-      this.token= localStorage.getItem('token');
-    }
-    else{
+    if (localStorage.getItem('token') != null) {
+      this.token = localStorage.getItem('token');
+    } else {
       this.token = null;
     }
-    if(localStorage.getItem('master')!=null)
-    {
-      this.master= localStorage.getItem('master');;
-    }
-    else{
+    if (localStorage.getItem('master') != null) {
+      this.master = localStorage.getItem('master');
+      ;
+    } else {
       this.master = null;
     }
     this.esEditar();
@@ -64,7 +64,7 @@ export class CreatePracticeComponent implements OnInit {
 
   }
 
-  updatePractice(id:any) {
+  updatePractice(id: any) {
     const PRACTICE: Practice = {
 
       nombre: this.practiceForm.get('nombre')?.value,
@@ -72,7 +72,7 @@ export class CreatePracticeComponent implements OnInit {
     }
 
     console.log(PRACTICE);
-    this._practiceService.updatePractice(id,PRACTICE).subscribe(data => {
+    this._practiceService.updatePractice(id, PRACTICE).subscribe(data => {
       this.toastr.success('La práctica fue actualizada con exito!', 'Practica Registrada!');
       this.router.navigate(['/list-practice']);
     }, error => {
@@ -83,7 +83,7 @@ export class CreatePracticeComponent implements OnInit {
 
   esEditar() {
 
-    if(this.id !== null) {
+    if (this.id !== null) {
       this.titulo = 'Editar practica';
       this._practiceService.getPractice(this.id).subscribe(data => {
         this.practiceForm.patchValue({

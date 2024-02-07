@@ -9,7 +9,7 @@
               <div class="card bg-light shadow">
                 <div class="row">
                   <div class="col-md-3">
-                    <img src="../../../../assets/muser-dr-512.png" class="img-fluid rounded-start" alt="...">
+                    <img src="../../../../assets/img/muser-dr-512.png" class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="card-body col-md-9">
                     <span>
@@ -70,9 +70,9 @@
                                     <td *ngFor="let t of turnos.slice(i * 4, (i + 1) * 4)" style="margin: 10px 0; ">
                                     <span>
                                       <button (click)="createTurno(t.hora)"
-                                      class="btn btn-info"
-                                      style="min-width: 68.33px;"
-                                      [disabled]="t.busy">
+                                              class="btn btn-info"
+                                              style="min-width: 68.33px;"
+                                              [disabled]="t.busy">
                                       {{ decimalAHora(t.hora) }}
                                       </button>
                                      </span>

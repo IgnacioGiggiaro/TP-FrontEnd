@@ -10,7 +10,9 @@
             </div>
             <div class="mb-3">
               <label>Password</label>
-              <input type="password" class="form-control" formControlName="password">
+              <div class="input-group">
+                <input type="password" class="form-control" formControlName="password">
+              </div>
             </div>
             <div *ngIf="showError" class="text-danger mb-3">
               Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.

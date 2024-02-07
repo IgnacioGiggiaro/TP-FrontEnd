@@ -29,7 +29,7 @@ export class CreateProfessionalComponent implements OnInit {
         mail: ['', Validators.required],
         direccion: ['', Validators.required],
         fecha_nac: ['', Validators.required],
-        matricula: ['', Validators.required],
+
       }
     )
     this.id = this.aRouter.snapshot.paramMap.get('id');}
@@ -65,7 +65,6 @@ export class CreateProfessionalComponent implements OnInit {
       mail: this.professionalForm.get('mail')?.value,
       direccion: this.professionalForm.get('direccion')?.value,
       fecha_nac: this.professionalForm.get('fecha_nac')?.value,
-      matricula: this.professionalForm.get('matricula')?.value,
     }
     console.log(PROFESSIONAL);
     this._professionalService.createProfessional(PROFESSIONAL).subscribe(data=> {
@@ -86,7 +85,6 @@ export class CreateProfessionalComponent implements OnInit {
       mail: this.professionalForm.get('mail')?.value,
       direccion: this.professionalForm.get('direccion')?.value,
       fecha_nac: this.professionalForm.get('fecha_nac')?.value,
-      matricula: this.professionalForm.get('matricula')?.value
     }
     console.log(PROFESSIONAL);
     this._professionalService.updateProfessional(id, PROFESSIONAL).subscribe( data=> {
@@ -109,7 +107,6 @@ export class CreateProfessionalComponent implements OnInit {
           telefono: data.telefono,
           mail: data.mail,
           direccion: data.direccion,
-          matricula: data.matricula,
         })
       })
     }

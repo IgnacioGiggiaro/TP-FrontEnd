@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ListOSComponent } from './list-os.component';
+import {ListOSComponent} from './list-os.component';
 
 describe('ListOSComponent', () => {
   let component: ListOSComponent;
@@ -8,9 +8,9 @@ describe('ListOSComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListOSComponent ]
+      declarations: [ListOSComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ListOSComponent);
     component = fixture.componentInstance;

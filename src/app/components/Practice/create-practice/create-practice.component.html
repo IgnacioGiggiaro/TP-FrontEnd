@@ -7,7 +7,8 @@
 
           <!--Modificar Practice-->
 
-          <form class="mt-3" *ngIf="this.id != null ; else nuevo" [formGroup]="practiceForm"  (ngSubmit)="updatePractice(this.id)" >
+          <form class="mt-3" *ngIf="this.id != null ; else nuevo" [formGroup]="practiceForm"
+                (ngSubmit)="updatePractice(this.id)">
             <div class="mb-3">
               <input type="text" formControlName="nombre" class="form-control form-control-lg"
                      placeholder="Nombre">
@@ -18,7 +19,8 @@
             </div>
             <div class="mb-3">
               <button [routerLink]="['/list-practice']" class="btn btn-secondary btn-lg float-start">VOLVER</button>
-              <button type="submit" [disabled]="practiceForm.invalid" class="btn btn-success btn-lg float-end">ACEPTAR</button>
+              <button type="submit" [disabled]="practiceForm.invalid" class="btn btn-success btn-lg float-end">ACEPTAR
+              </button>
             </div>
 
           </form>
@@ -26,7 +28,7 @@
           <!--Agregar paciente nuevo-->
 
           <ng-template #nuevo>
-            <form class="mt-3" [formGroup]="practiceForm"  (ngSubmit)="createPractice()" >
+            <form class="mt-3" [formGroup]="practiceForm" (ngSubmit)="createPractice()">
               <div class="mb-3">
                 <input type="text" formControlName="nombre" class="form-control form-control-lg"
                        placeholder="Nombre">
@@ -37,7 +39,9 @@
               </div>
               <div class="mb-3">
                 <button [routerLink]="['/list-practice']" class="btn btn-secondary btn-lg float-start">VOLVER</button>
-                <button type="submit" [disabled]="practiceForm.invalid" class="btn btn-success btn-lg float-end">ACEPTAR</button>
+                <button type="submit" [disabled]="practiceForm.invalid" class="btn btn-success btn-lg float-end">
+                  ACEPTAR
+                </button>
               </div>
             </form>
           </ng-template>

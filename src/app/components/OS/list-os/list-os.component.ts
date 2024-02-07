@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import {Component, OnInit} from '@angular/core';
+import {ToastrService} from 'ngx-toastr';
 import {ObraSocialService} from "../../../services/obra-social.service"
 import {ObraSocial} from "../../../models/obraSocial";
 
@@ -9,25 +9,24 @@ import {ObraSocial} from "../../../models/obraSocial";
   styleUrls: ['./list-os.component.css']
 })
 export class ListOSComponent implements OnInit {
-  listOS: ObraSocial[]=[];
+  listOS: ObraSocial[] = [];
 
   token: string | null = null;
   master: string | null = null;
-  constructor(public obraSocialService : ObraSocialService, private toastr: ToastrService) { }
+
+  constructor(public obraSocialService: ObraSocialService, private toastr: ToastrService) {
+  }
 
   ngOnInit(): void {
-    if(localStorage.getItem('token')!=null)
-    {
-      this.token= localStorage.getItem('token');
-    }
-    else{
+    if (localStorage.getItem('token') != null) {
+      this.token = localStorage.getItem('token');
+    } else {
       this.token = null;
     }
-    if(localStorage.getItem('master')!=null)
-    {
-      this.master= localStorage.getItem('master');;
-    }
-    else{
+    if (localStorage.getItem('master') != null) {
+      this.master = localStorage.getItem('master');
+      ;
+    } else {
       this.master = null;
     }
     this.getObrasSociales();
@@ -35,19 +34,18 @@ export class ListOSComponent implements OnInit {
 
   getObrasSociales() {
     this.obraSocialService.getOSs().subscribe(
-      data=>{
-        console.log(data);
-        this.listOS= (data);
+      data => {
+        this.listOS = (data);
       }, error => {
         console.log(error)
       }
     )
   }
 
-  deleteObraSocial(_id: any){
+  deleteObraSocial(_id: any) {
     this.obraSocialService.deleteOS(_id).subscribe(
-      data=>{
-        this.toastr.error('The OS has been successfully removed', 'OS deleted!' )
+      data => {
+        this.toastr.error('The OS has been successfully removed', 'OS deleted!')
         this.getObrasSociales();
       }, error => {
         console.log(error)

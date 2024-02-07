@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProfessionalService} from "../../../services/professional.service";
 import {Turno} from '../../../models/turno'
 import {Turn} from "../../../models/turn"
@@ -22,54 +22,52 @@ import {Professional} from "../../../models/professional";
   styleUrls: ['./create-turno.component.css']
 })
 export class CreateTurnoComponent implements OnInit {
-  turnos: Turn[]=[];
-  listOs: ObraSocial[]=[];
-  listId: String[]=[];
-  listId2: String[]=[];
-  listPrac:Practice[]=[];
-  listPaciente: Paciente[]=[];
+  turnos: Turn[] = [];
+  listOs: ObraSocial[] = [];
+  listId: String[] = [];
+  listId2: String[] = [];
+  listPrac: Practice[] = [];
+  listPaciente: Paciente[] = [];
 
   fechaForm: FormGroup;
-  professional!:Professional;
+  professional!: Professional;
   dayName: string;
   monthName: string;
   dayNumber: string;
 
-  id:string|null;
+  id: string | null;
   co!: number;
-  osid!:string;
-  pid!:string;
-  pacId!:string;
+  osid!: string;
+  pid!: string;
+  pacId!: string;
   token: string | null = null;
   master: string | null = null;
+
   constructor(
-    private fb:FormBuilder,
+    private fb: FormBuilder,
     private _profService: ProfessionalService,
-    private _practiceService:PracticeService,
+    private _practiceService: PracticeService,
     private aRouter: ActivatedRoute,
-    private _turnoService : TurnoService,
+    private _turnoService: TurnoService,
     private _osService: ObraSocialService,
     private toastr: ToastrService,
-    private _pacienteService:PacienteService) {
-    this.fechaForm=this.fb.group({
-      fecha:['',Validators.required],
+    private _pacienteService: PacienteService) {
+    this.fechaForm = this.fb.group({
+      fecha: ['', Validators.required],
     })
-    this.id=this.aRouter.snapshot.paramMap.get('id');
+    this.id = this.aRouter.snapshot.paramMap.get('id');
   }
 
   ngOnInit(): void {
-    if(localStorage.getItem('token')!=null)
-    {
-      this.token= localStorage.getItem('token');
-    }
-    else{
+    if (localStorage.getItem('token') != null) {
+      this.token = localStorage.getItem('token');
+    } else {
       this.token = null;
     }
-    if(localStorage.getItem('master')!=null)
-    {
-      this.master= localStorage.getItem('master');;
-    }
-    else{
+    if (localStorage.getItem('master') != null) {
+      this.master = localStorage.getItem('master');
+      ;
+    } else {
       this.master = null;
     }
     this.getOS();
@@ -80,23 +78,21 @@ export class CreateTurnoComponent implements OnInit {
   }
 
 
-  getTurnosPosibles(){
-    const fecha =this.formatDate(this.fechaForm.get('fecha')?.value);
-    console.log(fecha);
-    if(this.id!==null){
+  getTurnosPosibles() {
+    const fecha = this.formatDate(this.fechaForm.get('fecha')?.value);
+    if (this.id !== null) {
       this._profService.retrieveProfessional(this.id, fecha).subscribe(
-        res =>{
-          this.turnos=(res);
-          console.log(this.turnos);
-        }, error =>{
+        res => {
+          this.turnos = (res);
+        }, error => {
           console.log(error);
           this.fechaForm.reset();
         }
-
       )
     }
   }
-  formatDate(fecha: string){
+
+  formatDate(fecha: string) {
     return moment(fecha).utcOffset('0300').format('MM-DD-YY')
 
   }
@@ -120,39 +116,33 @@ export class CreateTurnoComponent implements OnInit {
   }
 
   createTurno(t: number) {
-    console.log(t);
-    console.log(this.osid);
-    console.log(this.pid);
-    const fecha =this.formatDate(this.fechaForm.get('fecha')?.value);
-    if (this.id!=null) {
+    const fecha = this.formatDate(this.fechaForm.get('fecha')?.value);
+    if (this.id != null) {
       const turno: Turno = {
         dia: fecha,
         hsDesde: t,
         professional: this.id,
-        obraSocial :this.osid,
+        obraSocial: this.osid,
         paciente: String(localStorage.getItem('usuarioId')),
         practica: this.pid
       }
-      console.log(turno);
-      this._turnoService.createTurno(turno).subscribe(res=>{
-        console.log(res),
+      this._turnoService.createTurno(turno).subscribe(res => {
           this.toastr.success('The Turn has benn created successfully!', 'Turn Created!')
-          this.turnos=[];
+        this.turnos = [];
       }, error => {
         console.log(error)
       })
     }
   }
-  decimalAHora(hs:number) {
+
+  decimalAHora(hs: number) {
     let horas = Math.floor(hs), // Obtenemos la parte entera
       restoHoras = Math.floor(hs % 1 * 100), // Obtenemos la parde decimal
       decimalMinutos = restoHoras * 60 / 100, // Obtenemos los minutos expresado en decimal
-
       minutos = Math.floor(decimalMinutos), // Obtenemos la parte entera
       restoMins = Math.floor(decimalMinutos % 1 * 100), // Obtenemos la parde decimal
       segundos = Math.floor(restoMins * 60 / 100); // Obtenemos los segundos expresado en entero
-
-    return (`${('00'+horas).slice(-2)}:${('00'+minutos).slice(-2)}`);
+    return (`${('00' + horas).slice(-2)}:${('00' + minutos).slice(-2)}`);
   }
 
   getOS() {
@@ -161,7 +151,6 @@ export class CreateTurnoComponent implements OnInit {
         if (Array.isArray(data) && data.every(item => typeof item === 'string')) {
           // Si es un array de strings, asigna a listId y continúa
           this.listId2 = data;
-          console.log(this.listId2);
           this.getObraSociales();
         } else {
           console.error('Error: La respuesta de getOS no es un array de strings');
@@ -174,10 +163,9 @@ export class CreateTurnoComponent implements OnInit {
   }
 
   getObraSociales() {
-    // Limpiar el array existente antes de asignar nuevos valores
+    // Limpiamos el array existente antes de asignar nuevos valores
     this.listOs = [];
-
-    // Iterar sobre cada id y obtener la práctica correspondiente
+    // Iteramos sobre cada id y obtener la práctica correspondiente
     this.listId2.forEach(id => {
       this._osService.getOS(String(id)).subscribe(
         os => {
@@ -190,14 +178,12 @@ export class CreateTurnoComponent implements OnInit {
     });
   }
 
-
   getPractica() {
     this._profService.getPractice(String(this.id)).subscribe(
       data => {
         if (Array.isArray(data) && data.every(item => typeof item === 'string')) {
           // Si es un array de strings, asigna a listId y continúa
           this.listId = data;
-          console.log(this.listId);
           this.getPracticas();
         } else {
           console.error('Error: La respuesta de getPractice no es un array de strings');
@@ -210,10 +196,7 @@ export class CreateTurnoComponent implements OnInit {
   }
 
   getPracticas() {
-    // Limpiar el array existente antes de asignar nuevos valores
     this.listPrac = [];
-
-    // Iterar sobre cada id y obtener la práctica correspondiente
     this.listId.forEach(id => {
       this._practiceService.getPractice(String(id)).subscribe(
         practice => {
@@ -226,32 +209,31 @@ export class CreateTurnoComponent implements OnInit {
     });
   }
 
-  getPaciente(){
-    this._pacienteService.getPacientes().subscribe(data=>{
-      this.listPaciente=(data);
-      console.log(this.listPaciente);
-    }, error=>{
+  getPaciente() {
+    this._pacienteService.getPacientes().subscribe(data => {
+      this.listPaciente = (data);
+    }, error => {
       console.log(error)
     })
   }
-  update({e}: { e: any }){
+
+  update({e}: { e: any }) {
     this.osid = e.target.value;
-    console.log(this.osid)
   }
-  updatePrac({e}: { e: any }){
+
+  updatePrac({e}: { e: any }) {
     this.pid = e.target.value;
-    console.log(this.pid)
   }
-  updatePac({e}: { e: any }){
+
+  updatePac({e}: { e: any }) {
     this.pacId = e.target.value;
-    console.log(this.pacId)
   }
+
   getProfessionalByID(_id: any) {
     if (_id !== null) {
       this._profService.getProfessional(_id).subscribe(
         res => {
-          this.professional=(res);
-          console.log(this.professional);
+          this.professional = (res);
         }, error => {
           console.log(error)
         }

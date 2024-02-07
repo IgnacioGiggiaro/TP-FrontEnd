@@ -13,7 +13,8 @@
                     <div class="card-body">
                       <h5 class="card-title">{{ os.nombre }}</h5>
                       <i *ngIf="os.flag==0" (click)="addOs(id,os._id)" class="fa-solid fa-check text-primary"></i>
-                      <i *ngIf="os.flag==1" (click)="deleteOS(this.id,os._id)" class="fa-solid fa-trash text-danger"></i>
+                      <i *ngIf="os.flag==1" (click)="deleteOS(this.id,os._id)"
+                         class="fa-solid fa-trash text-danger"></i>
                     </div>
                   </div>
                 </div>

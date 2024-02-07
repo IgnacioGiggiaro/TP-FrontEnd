@@ -13,8 +13,10 @@
                     <img src="{{os.imgURL}}" class="card-img-top" alt="Obra Social Image">
                     <div class="card-body">
                       <h5 class="card-title">{{ os.nombre }}</h5>
-                      <i *ngIf="this.master=='true'" [routerLink]="['/edit-os/', os._id]" class="fa-solid fa-pen-to-square text-primary"></i>
-                      <i *ngIf="this.master=='true'" (click)="deleteObraSocial(os._id)" style="margin-left: 5px;" class="fa-solid fa-trash text-danger"></i>
+                      <i *ngIf="this.master=='true'" [routerLink]="['/edit-os/', os._id]"
+                         class="fa-solid fa-pen-to-square text-primary"></i>
+                      <i *ngIf="this.master=='true'" (click)="deleteObraSocial(os._id)" style="margin-left: 5px;"
+                         class="fa-solid fa-trash text-danger"></i>
                     </div>
                   </div>
                 </div>

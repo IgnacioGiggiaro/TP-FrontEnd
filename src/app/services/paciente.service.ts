@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Paciente} from "../models/paciente";
@@ -11,13 +11,15 @@ import {environment} from "../../environments/environment";
 export class PacienteService {
 
   url = environment.route + 'Paciente/'
-  url2= environment.route + 'Paciente/login'
+  url2 = environment.route + 'Paciente/login'
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  getPacientes(): Observable<Paciente[]>{
+  getPacientes(): Observable<Paciente[]> {
     return this.http.get<Paciente[]>(this.url)
   }
+
   eliminarPaciente(id: string): Observable<any> {
     return this.http.delete(this.url + id);
   }
@@ -25,15 +27,16 @@ export class PacienteService {
   guardarPaciente(paciente: Paciente): Observable<any> {
     return this.http.post(this.url, paciente);
   }
-  updatePaciente(id:string, paciente: Paciente): Observable<any> {
-      return this.http.put(this.url + id, paciente);
+
+  updatePaciente(id: string, paciente: Paciente): Observable<any> {
+    return this.http.put(this.url + id, paciente);
   }
 
   obtenerPaciente(id: string): Observable<any> {
     return this.http.get(this.url + id);
   }
 
-  login(formValue: any): Observable<any>{
-    return this.http.post(this.url2,formValue);
+  login(formValue: any): Observable<any> {
+    return this.http.post(this.url2, formValue);
   }
 }

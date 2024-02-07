@@ -153,14 +153,7 @@
                   <span>La fecha de nacimiento <strong>es obligatoria</strong></span>
                 </div>
               </div>
-              <div class="mb-3">
-                <input type="text" formControlName="matricula" class="form-control form-control-lg"
-                       placeholder="Matricula">
-                <div class="text-danger"
-                     *ngIf="professionalForm.get('matricula')?.hasError('required') && professionalForm.get('matricula')?.touched">
-                  <span>La matrícula <strong>es obligatoria</strong></span>
-                </div>
-              </div>
+
               <div class="mb-3">
                 <button [routerLink]="['/list-professional']" class="btn btn-secondary btn-lg float-start">VOLVER</button>
                 <button type="submit" [disabled]="professionalForm.invalid" class="btn btn-success btn-lg float-end">ACEPTAR</button>

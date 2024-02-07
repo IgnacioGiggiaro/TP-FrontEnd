@@ -4,23 +4,31 @@
       <div class="card">
         <div class="card-body text-center table-responsive">
           <span class="titulo">Listado de Profesionales</span>
-          <button *ngIf="this.master=='true'" class="btn btn-success float-end" routerLink="/create-professional">Nuevo</button>
+          <button *ngIf="this.master=='true'" class="btn btn-success float-end" routerLink="/create-professional">
+            Nuevo
+          </button>
           <table *ngIf="listProfessional; else nohay" class="table table-striped  mt-3">
             <div class="container">
               <div class="card mb-3" *ngFor="let prof of listProfessional">
                 <div class="row g-0">
                   <div class="col-md-3">
-                    <img src="../../../../assets/muser-dr-512.png" class="img-fluid rounded-start mt-auto" style="max-width: 210px;" alt="...">
+                    <img src="../../../../assets/img/muser-dr-512.png" class="img-fluid rounded-start mt-auto"
+                         style="max-width: 210px;" alt="...">
                   </div>
                   <div class="col-md-9">
                     <div class="card-body">
                       <h5 class="card-title">{{prof.nombre}} {{prof.apellido}}</h5>
-                      <p class="card-text float-start">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "</p>
-                      <a [routerLink]="['/create-turno', prof._id]" class="btn btn-info btn-lg float-end">Sacar turno</a>
+                      <p class="card-text float-start">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "</p>
+                      <a [routerLink]="['/create-turno', prof._id]" class="btn btn-info btn-lg float-end">Sacar
+                        turno</a>
                       <br>
                       <br>
-                      <a [routerLink]="['/list-one-prof', prof._id]"  style="margin-right: 10px;" class="btn btn-info btn-lg float-end">Más info</a>
-                      <a *ngIf="this.master=='true'" [routerLink]="['/edit-professional', prof._id]" style="margin-right: 10px;"  class="btn btn-info btn-lg float-end">Editar</a>
+                      <a [routerLink]="['/list-one-prof', prof._id]" style="margin-right: 10px;"
+                         class="btn btn-info btn-lg float-end">Más info</a>
+                      <a *ngIf="this.master=='true'" [routerLink]="['/edit-professional', prof._id]"
+                         style="margin-right: 10px;" class="btn btn-info btn-lg float-end">Editar</a>
                     </div>
                   </div>
                 </div>
@@ -31,9 +39,9 @@
       </div>
 
       <!--there are no professional-->
-     <ng-template #nohay>
-      <h5>It seems that there aren't any professionals!</h5>
-     </ng-template>
+      <ng-template #nohay>
+        <h5>It seems that there aren't any professionals!</h5>
+      </ng-template>
     </div>
   </div>
 </div>

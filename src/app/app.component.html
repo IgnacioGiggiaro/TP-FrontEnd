@@ -1,12 +1,13 @@
 <nav class="navbar navbar-expand-lg ">
   <div class="container-fluid">
-  <a class="navbar-brand text-light" href="#">
-    <i class="fa-solid fa-eye" ></i>
-    Clinica de ojos
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <a class="navbar-brand text-light" href="#">
+      <i class="fa-solid fa-eye"></i>
+      Clinica de ojos
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <ul class="navbar-nav me-auto">
       <a class="nav-item nav-link text-light" href="list-professional">Profesionales</a>
       <a class="nav-item nav-link text-light" href="list-practice">Practicas</a>
@@ -15,8 +16,8 @@
       <a *ngIf="token==null" class="nav-item nav-link text-light ms-auto" href="login">Login</a>
       <a *ngIf="token!=null" (click)="cerrarSec()" class="nav-item nav-link text-light ms-auto" href="#">LogOut</a>
     </ul>
-  <div>
-  </div>
+    <div>
+    </div>
   </div>
 </nav>
 <router-outlet></router-outlet>

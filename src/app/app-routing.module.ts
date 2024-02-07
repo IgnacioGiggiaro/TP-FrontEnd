@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {AuthGuard} from '@auth0/auth0-angular'
 // Componentes
 import {ListarPacientesComponent} from "./components/Paciente/listar-pacientes/listar-pacientes.component";
@@ -21,41 +21,42 @@ import {AddPracticeComponent} from "./components/Professional/add-practice/add-p
 const routes: Routes = [
 
   //Menu Route
-  {path: 'menu', component:MenuComponent},
+  {path: 'menu', component: MenuComponent},
 
   //Paciente Routes
-  {path: 'crear-paciente', component:CrearPacienteComponent},
-  {path: 'editar-paciente/:id', component:CrearPacienteComponent},
-  {path: 'list-paciente', component:ListarPacientesComponent},
-  {path: 'login', component:LoginComponent},
+  {path: 'crear-paciente', component: CrearPacienteComponent},
+  {path: 'editar-paciente/:id', component: CrearPacienteComponent},
+  {path: 'list-paciente', component: ListarPacientesComponent},
+  {path: 'login', component: LoginComponent},
 
   //Practice Routes
-  {path: 'create-practice', component:CreatePracticeComponent},
+  {path: 'create-practice', component: CreatePracticeComponent},
   {path: 'editar-practice/:id', component: CreatePracticeComponent},
-  {path: 'list-practice', component:ListPracticeComponent},
-  {path: 'list-practice/:id', component:ListPracticeComponent},
+  {path: 'list-practice', component: ListPracticeComponent},
+  {path: 'list-practice/:id', component: ListPracticeComponent},
 
   //OS Routes
-  {path:'create-os', component:CreateOSComponent},
-  {path:'edit-os/:id', component:CreateOSComponent},
-  {path:'list-os', component:ListOSComponent},
+  {path: 'create-os', component: CreateOSComponent},
+  {path: 'edit-os/:id', component: CreateOSComponent},
+  {path: 'list-os', component: ListOSComponent},
 
   //Prof Routes
-  {path:'create-professional', component:CreateProfessionalComponent},
-  {path:'edit-professional/:id', component:CreateProfessionalComponent},
-  {path:'list-professional', component:ListProfessionalComponent},
-  {path:'list-one-prof/:id', component:ListOneProfComponent},
-  {path:'add-os/:id', component:AddOsComponent},
-  {path:'add-practice/:id',component:AddPracticeComponent},
+  {path: 'create-professional', component: CreateProfessionalComponent},
+  {path: 'edit-professional/:id', component: CreateProfessionalComponent},
+  {path: 'list-professional', component: ListProfessionalComponent},
+  {path: 'list-one-prof/:id', component: ListOneProfComponent},
+  {path: 'add-os/:id', component: AddOsComponent},
+  {path: 'add-practice/:id', component: AddPracticeComponent},
 
   //Turnos Routes
-  {path:'create-turno/:id', component:CreateTurnoComponent},
+  {path: 'create-turno/:id', component: CreateTurnoComponent},
 
   //Default Route
-  {path:'**', redirectTo: 'menu', pathMatch:'full'}];
+  {path: '**', redirectTo: 'menu', pathMatch: 'full'}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

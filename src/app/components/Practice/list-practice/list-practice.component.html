@@ -4,7 +4,8 @@
       <div class="card">
         <div class="card-body text-center table-responsive">
           <span class="titulo">Listado de Practicas</span>
-          <button *ngIf="this.master=='true'" class="btn btn-success float-end" routerLink="/create-practice">Nuevo</button>
+          <button *ngIf="this.master=='true'" class="btn btn-success float-end" routerLink="/create-practice">Nuevo
+          </button>
           <table *ngIf="listPractice; else nohay" class="table table-striped mt-3">
             <thead>
             <tr>
@@ -16,8 +17,10 @@
             <tr *ngFor="let practice of listPractice">
               <td class="text-center align-middle">{{ practice.nombre }}</td>
               <td class="text-center align-middle">
-                <i *ngIf="this.master=='true'" [routerLink]="['/editar-practice', practice._id]" class="fa-solid fa-pen-to-square text-primary"></i>
-                <i *ngIf="this.master=='true'" (click)="eliminarPractice(practice._id)" style="margin-left: 10px;" class="fa-solid fa-trash text-danger"></i>
+                <i *ngIf="this.master=='true'" [routerLink]="['/editar-practice', practice._id]"
+                   class="fa-solid fa-pen-to-square text-primary"></i>
+                <i *ngIf="this.master=='true'" (click)="eliminarPractice(practice._id)" style="margin-left: 10px;"
+                   class="fa-solid fa-trash text-danger"></i>
               </td>
             </tr>
             </tbody>

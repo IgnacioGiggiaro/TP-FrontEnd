@@ -1,11 +1,10 @@
-
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import {Component, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
 // @ts-ignore
 import * as L from 'leaflet';
 
 
 import {AuthService} from "@auth0/auth0-angular";
-import { from } from 'rxjs';
+import {from} from 'rxjs';
 
 @Component({
   selector: 'app-menu',
@@ -14,12 +13,13 @@ import { from } from 'rxjs';
 })
 export class MenuComponent implements AfterViewInit {
 
-  @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
+  @ViewChild('mapContainer', {static: false}) gmap: ElementRef;
   map: google.maps.Map;
   lat = -32.95461;
   lng = -60.64382;
 
   coordinates = new google.maps.LatLng(this.lat, this.lng);
+
   ngOnInit(): void {
 
   }
@@ -28,6 +28,7 @@ export class MenuComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.mapInitializer();
   }
+
   marker = new google.maps.Marker({
     position: this.coordinates,
 

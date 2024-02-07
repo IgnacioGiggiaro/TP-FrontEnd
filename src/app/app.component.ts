@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {AuthService} from "@auth0/auth0-angular";
 
 @Component({
@@ -12,23 +12,21 @@ export class AppComponent {
   title = 'clinica';
 
   ngOnInit(): void {
-    if(localStorage.getItem('token')!=null)
-    {
-      this.token= localStorage.getItem('token');
-    }
-    else{
+    if (localStorage.getItem('token') != null) {
+      this.token = localStorage.getItem('token');
+    } else {
       this.token = null;
     }
-    if(localStorage.getItem('master')!=null)
-    {
-      this.master= localStorage.getItem('master');;
-    }
-    else{
+    if (localStorage.getItem('master') != null) {
+      this.master = localStorage.getItem('master');
+      ;
+    } else {
       this.master = null;
     }
 
   }
-  cerrarSec(): void{
+
+  cerrarSec(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('master');
   }

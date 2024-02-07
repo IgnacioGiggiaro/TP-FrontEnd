@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {AbstractControl, FormControl, FormGroup} from "@angular/forms";
 import { PacienteService } from 'src/app/services/paciente.service';
 import {ActivatedRoute} from "@angular/router";
 import { Router } from '@angular/router';
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   constructor(private _pacienteService: PacienteService,
               private aRouter: ActivatedRoute,
               private router: Router
-              ) {
+  ) {
     this.formulario = new FormGroup(
       {
         mail: new FormControl(),
@@ -34,54 +34,47 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(localStorage.getItem('token')!=null)
-    {
-      this.token= localStorage.getItem('token');
-    }
-    else{
+    if (localStorage.getItem('token') != null) {
+      this.token = localStorage.getItem('token');
+    } else {
       this.token = null;
     }
-    if(localStorage.getItem('master')!=null)
-    {
-      this.master= localStorage.getItem('master');;
-    }
-    else{
+    if (localStorage.getItem('master') != null) {
+      this.master = localStorage.getItem('master');
+      ;
+    } else {
       this.master = null;
     }
-    if(localStorage.getItem('usuario')!=null)
-    {
-      this.master= localStorage.getItem('master');;
-    }
-    else{
+    if (localStorage.getItem('usuario') != null) {
+      this.master = localStorage.getItem('master');
+      ;
+    } else {
       this.master = null;
     }
   }
 
-  async onSubmit(){
+  async onSubmit() {
     this._pacienteService.login(this.formulario.value).subscribe(
       res => {
-        this.usuario=(res);
+        this.usuario = (res);
         this.showError = false;
-        localStorage.setItem('token',this.usuario.token);
-        localStorage.setItem('master',String(this.usuario.master));
-        localStorage.setItem('usuarioId',this.usuario.userId);
-        console.log(this.usuario);
+        localStorage.setItem('token', this.usuario.token);
+        localStorage.setItem('master', String(this.usuario.master));
+        localStorage.setItem('usuarioId', this.usuario.userId);;
         this.router.navigate(['menu']);
       }, error => {
         console.log(error)
         this.showError = true;
       }
     )
+  }
 
-    }
   redireccion(): void {
     this.router.navigate(['/crear-paciente']);
   }
 
-
-
-
 }
+
 
 
 
